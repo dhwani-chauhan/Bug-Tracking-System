@@ -1,6 +1,6 @@
 package com.BTS.BugTrackingSystem.Repository;
 
-import com.BTS.BTS.Model.ProjectDetails;
+import com.BTS.BugTrackingSystem.Model.ProjectDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
