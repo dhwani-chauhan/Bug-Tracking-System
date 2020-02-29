@@ -1,25 +1,19 @@
-<jsp:include page="./Header.jsp"></jsp:include>
+<%@ taglib prefix="forms" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@page import="java.sql.*" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <title>Login.html</title>
-	
+	  <jsp:include page="./Header.jsp"></jsp:include>
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="this is my page">
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
-    
-    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
-	<script type="text/javascript" language="javascrpt">
-    	function check()
-    	{
-    		
-    	
-       	}
-    </script>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
   <body bgcolor="">
-<form name="testerForm" action="ViewBugs" onsubmit="return check()" method="post">
+<form:form modelAttribute="BugSolution" action="/viewsolution">
 <br>
 <center>
 <h4 align="center"><font color="red">
@@ -30,61 +24,26 @@
 	</font></h4>
 	
 	<h3><font color="#FBB117" face="arial narrow">&nbsp;&nbsp;&nbsp;&nbsp;View Solution</font></h3>
-  		
-<table border="1" cellpadding="2" cellspacing="0" bordercolor="orange">
+	<jsp:useBean id="bugs" class="BugReport" scope="request" />
+	<table border="1" cellpadding="2" cellspacing="0" bordercolor="orange">
   		<tr>
   			
   			<th>Employee Code</th>
   			<th>Solution</th>
   			<th>Date</th>
-  			  		</tr>
-<%
-		ServletContext sc=getServletContext();
-		String driver=sc.getInitParameter("drivername");
-		String url=sc.getInitParameter("url");
-		String uname=sc.getInitParameter("username");
-		String pwd=sc.getInitParameter("password");
-		HttpSession hs=request.getSession();
-		String s=request.getParameter("bugid");
-try{
-			Class.forName(driver);
-			Connection  con=DriverManager.getConnection(url,uname,pwd);
-			System.out.println(".......11........");
-			ResultSet rs;
-			PreparedStatement pstmt=con.prepareStatement("select * from bug_solution where bugno=?");
-			pstmt.setString(1,s);
-			rs=pstmt.executeQuery();
-			int i=0;
-	while(rs.next())
-	{			
-%>
-
-  		<tr>
-  			<td><%=rs.getString(2)%></td>
-  			<td><%=rs.getString(3)%></td>
-  			<td><%=rs.getString(4)%></td>
-  			
 		</tr>
-  
-<%
-i=i+1;
-}//while
-if(i==0)
-{
-%>
-<td colspan="3" align="center">No Records Found</td>  			
+
+	<c:forEach items="" var="solve">
+		<tr>
+			<td><jsp:getProperty name="bugs" property="bug_date"/></td>
+			<td><jsp:getProperty name="bugs" property="bug_date"/></td>
+			<td><jsp:getProperty name="bugs" property="bug_date"/></td>
+
+		</tr>
+	</c:forEach>
 	</table>
- 		
-<%
-}
-}
-catch(Exception e)
-{
-	e.printStackTrace();
-}
- %>  			
   	</center>
    </form>
-   </body>
-<jsp:include page="./footer.jsp" />   
+	<jsp:include page="./footer.jsp" />
+	</body>
 </html>

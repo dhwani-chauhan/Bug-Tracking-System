@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+<%@ page import="com.BTS.BugTrackingSystem.*" %>
+<%@ page import="com.BTS.BugTrackingSystem.Repository.DeveloperRepo" %>
+<%@ page import="org.apache.catalina.User" %>
+<!DOCTYPE html>
 <html>
 <body bgcolor="white">
 <form>
@@ -7,21 +13,28 @@
 	<td align=""><font face="arial narrow" size="5px" color="orange"><b> Bug Tracking System</b></font></td>
 	</tr>
 	<tr>
-
-	<%
-	HttpSession hs=request.getSession();
-    String uname=(String)hs.getAttribute("userid");
-	String role=(String)hs.getAttribute("role");
-	 %>
+        <%
+            if(session.getAttribute("user") != null)
+            {
+                User user = (User) request.getSession().getAttribute("user");
+        %>
+<%--	<%--%>
+<%--	HttpSession hs=request.getSession();--%>
+<%--    String uname=(String)hs.getAttribute("userid");--%>
+<%--	String role=(String)hs.getAttribute("role");--%>
+<%--	 %>--%>
 	   <td align="right" valign="bottom" colspan=2>
-                <b>  <%if(role.equals("admin")){%>Welcome,&nbsp;&nbsp; Admin<%} else {%>Welcome,&nbsp;&nbsp;<%=uname%> <%} %> </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
-                <b>[ <%if(role.equals("admin")){%><a href="./AdminHome.jsp"><%}
-                        else if(uname.equals("Tester")){%><a href="./TesterHome.jsp?cat=Tester"><%}
-                        else if(uname.equals("Developer")){%><a href="./DeveloperHome.jsp?cat=Developer&uname=<%=uname%>"><%}
-                        else if(uname.equals("HrManager")){%><a href="./HrMangerHome.jsp?cat=HrMangager&uname=<%=uname%>"><%} %><font color="#FBC61">home</font></a> ]</b>&nbsp;
-                <%if(role!="user"){%><b>[ <a href="./logout.jsp"><font color="#FBC61" size="3px">logout</font></a> ]</b><%} %>
+                <b>  <%if(user.equals("admin")){%>Welcome,&nbsp;&nbsp; Admin<%} else {%>Welcome,&nbsp;&nbsp;${user.name} <%} %> </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b>[ <%if(user.equals("admin")){%><a href="./AdminHome.jsp"><%}
+                        else if(user.equals("Tester")){%><a href="./TesterHome.jsp?cat=Tester"><%}
+                        else if(user.equals("Developer")){%><a href="./DeveloperHome.jsp?cat=Developer&uname=${user.name}"><%}
+                        else if(user.equals("HrManager")){%><a href="./HrMangerHome.jsp?cat=HrMangager&uname=${user.name}"><%} %><font color="#FBC61">home</font></a> ]</b>&nbsp;
+                <%if(!user.equals("user")){%><b>[ <a href="./logout.jsp"><font color="#FBC61" size="3px">logout</font></a> ]</b><%} %>
             </td>
-	
+        <%
+        }
+        
+        %>
 
 	</tr>
 	</table>
@@ -45,21 +58,17 @@
 
 <style type="text/css">
 
-ul#nav, ul#nav ul {
+ul.nav, ul.nav ul {
    margin: 0;
    padding: 0px;
    list-style: none;
-   
-   }
+}
 
 ul#nav  li {
    position: relative;
    float: left;
    width:140px;
    font-size: 12px;
-  
-   
-  
 }
    
 #nav li ul {
@@ -76,7 +85,6 @@ ul#nav  li a {
    color:black;
    padding: 2px;
    border: 1px solid #ccc;
-   
    min-height:0;
    }
 /* commented backslash mac hiding hack \*/
@@ -106,7 +114,7 @@ ul#nav  li a {
 <table border=0 align=right>
 <tr><td>
 <font size="3px">
-  <ul id="nav">
+  <ul class="nav">
       <li><a href="#">Department</a>
           <ul id="nav">
               <li><a href="./AddDepartment.jsp">Add&nbsp;Department&nbsp;</a></li>
@@ -120,18 +128,18 @@ ul#nav  li a {
               <li><a href="./UpdateEmployee.jsp">Update&nbsp;Employee</a></li>
           </ul>
       </li>
-      <li><a href="#">Project </a>
-          <ul>
-              <li><a href="./AddProject.jsp">Add Project</a></li>
-              <li><a href="./ViewProject.jsp">View Project</a></li>
-              <li><a href="./UpdateProject.jsp">Update&nbsp;Project</a></li>
-          </ul>
-      </li>
-      <li><a href="#">Permission </a>
-          <ul>
-              <li><a href="./EmployeePermission.jsp">Employee</a></li>
-          </ul>
-      </li>
+<%--      <li><a href="#">Project </a>--%>
+<%--          <ul>--%>
+<%--              <li><a href="./AddProject.jsp">Add Project</a></li>--%>
+<%--              <li><a href="./ViewProject.jsp">View Project</a></li>--%>
+<%--              <li><a href="./UpdateProject.jsp">Update&nbsp;Project</a></li>--%>
+<%--          </ul>--%>
+<%--      </li>--%>
+<%--      <li><a href="#">Permission </a>--%>
+<%--          <ul>--%>
+<%--              <li><a href="./EmployeePermission.jsp">Employee</a></li>--%>
+<%--          </ul>--%>
+<%--      </li>--%>
   </ul>
   </font>
 </td></tr>
