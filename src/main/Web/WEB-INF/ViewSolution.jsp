@@ -1,6 +1,6 @@
 <%@ taglib prefix="forms" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page import="com.BTS.BugTrackingSystem.*" %>
 <%@page import="java.sql.*" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
   <body bgcolor="">
+  <jsp:useBean id="bugs" class="BugReport" scope="request" />
 <form:form modelAttribute="BugSolution" action="/viewsolution">
 <br>
 <center>
@@ -23,8 +24,8 @@
 <%} %>
 	</font></h4>
 	
-	<h3><font color="#FBB117" face="arial narrow">&nbsp;&nbsp;&nbsp;&nbsp;View Solution</font></h3>
-	<jsp:useBean id="bugs" class="BugReport" scope="request" />
+	<h3><font color="#FBB117" face="arial narrow">View Solution</font></h3>
+
 	<table border="1" cellpadding="2" cellspacing="0" bordercolor="orange">
   		<tr>
   			
@@ -43,7 +44,7 @@
 	</c:forEach>
 	</table>
   	</center>
-   </form>
+	</form:form>
 	<jsp:include page="./footer.jsp" />
 	</body>
 </html>
