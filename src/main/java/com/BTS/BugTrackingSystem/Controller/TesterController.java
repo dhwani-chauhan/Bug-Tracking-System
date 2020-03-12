@@ -44,7 +44,7 @@ public class TesterController {
     }
 
     @GetMapping("/")
-    public ResponseEntity getAllBeverages() {
+    public ResponseEntity showAll() {
         try {
             List<BugReport> list = testerService.showAll();
             return correctResponse(list,HttpStatus.OK, HttpStatus.OK.value(),"Success",HttpStatus.OK);

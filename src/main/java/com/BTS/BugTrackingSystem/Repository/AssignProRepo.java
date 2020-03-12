@@ -1,10 +1,9 @@
 package com.BTS.BugTrackingSystem.Repository;
 
-import com.BTS.BugTrackingSystem.Model.BugReport;
+import com.BTS.BugTrackingSystem.Model.AssignProject;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BugReportRepo extends JpaRepository<BugReport,Integer> {
-    public String showStatus(int bug_no);
+public interface AssignProRepo extends JpaRepository<AssignProject,Integer> {
 }

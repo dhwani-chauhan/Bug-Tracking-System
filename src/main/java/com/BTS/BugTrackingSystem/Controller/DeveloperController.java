@@ -41,7 +41,7 @@ public class DeveloperController {
     }
 
     @GetMapping("/")
-    public ResponseEntity getAllBeverages() {
+    public ResponseEntity showAll() {
         try {
             List<BugSolution> list = developerService.showAll();
             return correctResponse(list,HttpStatus.OK, HttpStatus.OK.value(),"Success",HttpStatus.OK);

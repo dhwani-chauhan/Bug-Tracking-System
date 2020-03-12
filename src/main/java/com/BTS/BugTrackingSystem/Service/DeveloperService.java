@@ -2,6 +2,7 @@ package com.BTS.BugTrackingSystem.Service;
 
 import com.BTS.BugTrackingSystem.Model.BugSolution;
 import com.BTS.BugTrackingSystem.Repository.BugSolutionRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class DeveloperService {
-
+    @Autowired
     private BugSolutionRepo solutionRepo;
 
     public BugSolution addSolution(BugSolution bugSolution) throws Exception{

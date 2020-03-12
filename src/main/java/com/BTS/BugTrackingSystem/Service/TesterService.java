@@ -2,6 +2,7 @@ package com.BTS.BugTrackingSystem.Service;
 
 import com.BTS.BugTrackingSystem.Model.BugReport;
 import com.BTS.BugTrackingSystem.Repository.BugReportRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class TesterService {
-
+    @Autowired
     private BugReportRepo reportRepo;
 
     public BugReport addBug(BugReport bugReport) throws Exception{
@@ -29,6 +30,11 @@ public class TesterService {
         if(bugReports.isEmpty())
             throw new Exception("No bug report(s) is present");
         return bugReports;
+    }
+
+    public String checkStatus(int bug_no) throws Exception{
+        String status = reportRepo.showStatus(bug_no);
+        return status;
     }
 
 }
