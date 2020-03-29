@@ -6,10 +6,7 @@ import com.BTS.BugTrackingSystem.Service.TesterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -26,6 +23,29 @@ public class TesterController {
         try{
             BugReport bugReport1 = testerService.addBug(bugReport);
             return correctResponse(bugReport1,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch(Exception e){
+            return errorResponse(e);
+        }
+    }
+
+    @PostMapping(path = "/update")
+    public ResponseEntity editSolution(@RequestBody BugReport bugReport){
+        try{
+            BugReport bugReport1 = testerService.findById(bugReport.getBug_no());
+            BugReport bugReport2 =testerService.updateBug(bugReport,bugReport1);
+            return correctResponse(bugReport2,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch(Exception e){
+            return errorResponse(e);
+        }
+    }
+
+    @DeleteMapping(path = "/delete/{id}")
+    public ResponseEntity deleteBug(@PathVariable int id) throws Exception{
+        try{
+            testerService.deleteBug(id);
+            return correctResponse(1,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
         }
         catch(Exception e){
             return errorResponse(e);

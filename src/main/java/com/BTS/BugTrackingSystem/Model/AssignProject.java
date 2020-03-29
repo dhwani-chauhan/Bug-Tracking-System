@@ -1,10 +1,8 @@
 package com.BTS.BugTrackingSystem.Model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -15,6 +13,8 @@ import javax.validation.constraints.Pattern;
 @Setter
 @ToString
 @Table(name = "assign_project")
+@Entity
+@AllArgsConstructor
 public class AssignProject {
 
     @Id

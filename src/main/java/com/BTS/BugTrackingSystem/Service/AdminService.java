@@ -45,7 +45,7 @@ public class AdminService {
     public Developer findById(String id) throws Exception{
         Optional<Developer> developer = developerRepo.findById(id);
         if(!developer.isPresent())
-            throw new Exception("No such bug reported exist");
+            throw new Exception("No such developer exist");
         return developer.get();
     }
 
@@ -56,7 +56,8 @@ public class AdminService {
         else{
             String status = testerService.checkStatus(bug_no);
             if(!status.equals("Completed")){
-                adminRepo.changeStatus(bug_no);
+                //change status
+
             }
             return bugReport.get();
         }

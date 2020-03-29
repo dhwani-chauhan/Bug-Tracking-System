@@ -29,6 +29,28 @@ public class DeveloperController {
         }
     }
 
+    @PostMapping(path = "/update")
+    public ResponseEntity editSolution(@RequestBody BugSolution bugSolution){
+        try{
+            BugSolution bugSolution1 = developerService.findById(bugSolution.getBug_no());
+            BugSolution bugSolution2 = developerService.updateSolution(bugSolution,bugSolution1);
+            return correctResponse(bugSolution2,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch(Exception e){
+            return errorResponse(e);
+        }
+    }
+
+    @DeleteMapping(path = "/delete/{id}")
+    public ResponseEntity deleteSolution(@PathVariable int id) throws Exception{
+        try{
+            developerService.deleteSolution(id);
+            return correctResponse(1,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch(Exception e){
+            return errorResponse(e);
+        }
+    }
     @GetMapping(path="/find/{id}")
     public ResponseEntity findById(@RequestBody int id) throws Exception{
         try {

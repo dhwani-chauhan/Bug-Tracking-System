@@ -19,6 +19,25 @@ public class DeveloperService {
         return solutionRepo.save(bugSolution);
     }
 
+    public BugSolution updateSolution(BugSolution bugSolution,BugSolution bugSolution1) throws Exception{
+        if(bugSolution == null)
+            throw new Exception("No Solution added");
+        else if(!(bugSolution1.getSolution().equalsIgnoreCase(bugSolution.getSolution()))
+                    || (bugSolution1.getB_date().equalsIgnoreCase(bugSolution.getB_date()))
+                        || (bugSolution1.getE_code().equalsIgnoreCase(bugSolution.getE_code()))){
+                bugSolution1.setSolution(bugSolution.getSolution());
+                bugSolution1.setB_date(bugSolution.getB_date());
+                bugSolution1.setE_code(bugSolution.getE_code());
+
+        }
+        return solutionRepo.save(bugSolution1);
+    }
+
+    public void deleteSolution(int id)
+    {
+        solutionRepo.deleteById(id);
+    }
+
     public BugSolution findById(int id) throws Exception{
         Optional<BugSolution> bugSolution = solutionRepo.findById(id);
         if(!bugSolution.isPresent())
