@@ -17,11 +17,11 @@
 			<br>
 			<table class=notebook align=center>
 				<tr class=row_title>
-					<th align="center">f1</th>
-					<th align="center">message</th>
-					<th align="center">reassignto</th>
-					<th align="center">newstatus</th>
-					<th align="center">tested</th>
+					<th align="center">Admin Id</th>
+					<th align="center">Message</th>
+					<th align="center">ReassignTo</th>
+					<th align="center">NewStatus</th>
+					<th align="center">Tested</th>
 				<tr class= >
 					<td><a href=""><jsp:setProperty name="" property=""/></a></td>
 					<td align="center"><jsp:getProperty name="" property=""/></td>
