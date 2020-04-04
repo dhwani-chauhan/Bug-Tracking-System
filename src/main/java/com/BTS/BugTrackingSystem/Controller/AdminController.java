@@ -1,16 +1,11 @@
 package com.BTS.BugTrackingSystem.Controller;
 
-import com.BTS.BugTrackingSystem.Model.BugReport;
-import com.BTS.BugTrackingSystem.Model.BugSolution;
-import com.BTS.BugTrackingSystem.Model.Developer;
+import com.BTS.BugTrackingSystem.Model.*;
 import com.BTS.BugTrackingSystem.Service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -72,6 +67,94 @@ public class AdminController {
         try {
             Developer developer = adminService.findById(id);
             return correctResponse(developer,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch (Exception ex) {
+            return errorResponse(ex);
+        }
+    }
+
+    @PostMapping(path = "/addDept")
+    public ResponseEntity addDepartment(@RequestBody Department department){
+        try{
+            Department department1 = adminService.addDept(department);
+            return correctResponse(department1,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch(Exception e){
+            return errorResponse(e);
+        }
+    }
+
+    @DeleteMapping(path = "/deleteDept/{id}")
+    public ResponseEntity deleteDept(@PathVariable int id) throws Exception{
+        try{
+            adminService.deleteDept(id);
+            return correctResponse(1,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch(Exception e){
+            return errorResponse(e);
+        }
+    }
+
+    @GetMapping(path="/findDept/{id}")
+    public ResponseEntity findDeptById(@RequestBody int id) throws Exception{
+        try {
+            Department department = adminService.findDeptById(id);
+            return correctResponse(department,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch (Exception ex) {
+            return errorResponse(ex);
+        }
+    }
+
+    @GetMapping("/dept/")
+    public ResponseEntity showAllDept() {
+        try {
+            List<Department> list = adminService.showAllDept();
+            return correctResponse(list,HttpStatus.OK, HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch (Exception ex) {
+            return errorResponse(ex);
+        }
+    }
+
+    @PostMapping(path = "/addProject")
+    public ResponseEntity addProject(@RequestBody ProjectDetails projectDetails){
+        try{
+            ProjectDetails projectDetails1 = adminService.addProject(projectDetails);
+            return correctResponse(projectDetails1,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch(Exception e){
+            return errorResponse(e);
+        }
+    }
+
+    @DeleteMapping(path = "/deleteProject/{id}")
+    public ResponseEntity deleteProject(@PathVariable int id) throws Exception{
+        try{
+            adminService.deleteProject(id);
+            return correctResponse(1,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch(Exception e){
+            return errorResponse(e);
+        }
+    }
+
+    @GetMapping(path="/findProject/{id}")
+    public ResponseEntity findProjectById(@RequestBody int id) throws Exception{
+        try {
+            ProjectDetails projectDetails = adminService.findProjectById(id);
+            return correctResponse(projectDetails,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch (Exception ex) {
+            return errorResponse(ex);
+        }
+    }
+
+    @GetMapping("/project/")
+    public ResponseEntity showAllProject() {
+        try {
+            List<ProjectDetails> list = adminService.showAllProject();
+            return correctResponse(list,HttpStatus.OK, HttpStatus.OK.value(),"Success",HttpStatus.OK);
         }
         catch (Exception ex) {
             return errorResponse(ex);

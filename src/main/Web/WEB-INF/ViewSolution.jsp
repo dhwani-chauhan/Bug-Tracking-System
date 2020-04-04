@@ -7,13 +7,13 @@
 <html>
   <head>
     <title>Login.html</title>
-  	<jsp:include page="./Header.jsp"></jsp:include>
+  	<jsp:include page="Header.jsp"></jsp:include>
     <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
   <body bgcolor="">
   <jsp:useBean id="bugs" class="com.BTS.BugTrackingSystem.Model.BugReport" scope="request" />
 <%--@elvariable id="BugSolution" type=""--%>
-	<form:form modelAttribute="BugSolution" action="/viewsolution">
+	<form:form modelAttribute="BugSolution" action="/">
 	<br>
 	<center>
 	<h4 align="center"><font color="red">
@@ -36,6 +36,6 @@
 		</table>
 		</center>
 	</form:form>
-  	<jsp:include page="./Footer.jsp" />
+  	<jsp:include page="Footer.jsp" />
   </body>
 </html>

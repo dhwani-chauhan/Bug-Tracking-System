@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>Login.html</title>
-  	<jsp:include page="./Header.jsp" />
+  	<jsp:include page="Header.jsp" />
     <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
 	<script type="text/javascript" language="javascrpt">
     	function check()
@@ -57,5 +57,5 @@
 		</center>
 	</form:form>
    </body>
-<jsp:include page="./Footer.jsp" />
+<jsp:include page="Footer.jsp" />
 </html>

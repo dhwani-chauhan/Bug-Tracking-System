@@ -81,5 +81,5 @@
 			</center>
 		</form>
 	</body>
-	<jsp:include flush="true" page="./Footer.jsp"/>
+	<jsp:include flush="true" page="Footer.jsp"/>
 </html>

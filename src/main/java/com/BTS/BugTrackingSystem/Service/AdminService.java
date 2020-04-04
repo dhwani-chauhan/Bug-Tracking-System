@@ -1,10 +1,10 @@
 package com.BTS.BugTrackingSystem.Service;
 
-import com.BTS.BugTrackingSystem.Model.BugReport;
-import com.BTS.BugTrackingSystem.Model.BugSolution;
-import com.BTS.BugTrackingSystem.Model.Developer;
+import com.BTS.BugTrackingSystem.Model.*;
 import com.BTS.BugTrackingSystem.Repository.AdminRepo;
+import com.BTS.BugTrackingSystem.Repository.DeptRepo;
 import com.BTS.BugTrackingSystem.Repository.DeveloperRepo;
+import com.BTS.BugTrackingSystem.Repository.ProjectDeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +25,60 @@ public class AdminService {
 
     @Autowired
     private DeveloperService developerService;
+
+    @Autowired
+    private DeptRepo deptRepo;
+
+    @Autowired
+    private ProjectDeRepo projectDeRepo;
+
+    public Department addDept(Department department) throws Exception{
+        if(department == null)
+            throw new Exception("No Department Added");
+        return deptRepo.save(department);
+    }
+
+    public Department findDeptById(int id) throws Exception{
+        Optional<Department> department = deptRepo.findById(id);
+        if(!department.isPresent())
+            throw new Exception("No Such department Found");
+        return department.get();
+    }
+
+    public void deleteDept(int id){
+        deptRepo.deleteById(id);
+    }
+
+    public List<Department> showAllDept() throws Exception{
+        List<Department> departments = deptRepo.findAll();
+        if(departments.isEmpty())
+            throw new Exception("No Department is present");
+        return departments;
+    }
+
+    public ProjectDetails addProject(ProjectDetails projectDetails) throws Exception{
+        if(projectDeRepo == null)
+            throw new Exception("No Department Added");
+        return projectDeRepo.save(projectDetails);
+    }
+
+    public ProjectDetails findProjectById(int id) throws Exception{
+        Optional<ProjectDetails> projectDetails = projectDeRepo.findById(id);
+        if(!projectDetails.isPresent())
+            throw new Exception("No Such department Found");
+        return projectDetails.get();
+    }
+
+    public void deleteProject(int id){
+        projectDeRepo.deleteById(id);
+    }
+
+    public List<ProjectDetails> showAllProject() throws Exception{
+        List<ProjectDetails> projectDetails = projectDeRepo.findAll();
+        if(projectDetails.isEmpty())
+            throw new Exception("No Department is present");
+        return projectDetails;
+    }
 
     public BugReport findReById(int id) throws Exception{
         return testerService.findById(id);

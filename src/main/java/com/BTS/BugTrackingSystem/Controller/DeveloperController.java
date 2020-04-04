@@ -51,6 +51,7 @@ public class DeveloperController {
             return errorResponse(e);
         }
     }
+
     @GetMapping(path="/find/{id}")
     public ResponseEntity findById(@RequestBody int id) throws Exception{
         try {

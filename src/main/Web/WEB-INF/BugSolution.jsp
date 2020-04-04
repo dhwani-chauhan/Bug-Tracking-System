@@ -5,7 +5,7 @@
 <html>
   <head>
     <title>Login.html</title>
-  	<jsp:include page="./Header.jsp"></jsp:include>
+  	<jsp:include page="Header.jsp"></jsp:include>
     <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
 	<script type="text/javascript" language="javascrpt">
     	function check()
@@ -52,10 +52,10 @@
 			<tr>
 				<td align="center" colspan="2"><input type="hidden" name="bugid" value="<jsp:getProperty name="solve" property="bug_no"/>"></td></tr>
 			<tr>
-				<td align="center" colspan="2"><input type="submit" value="submit"></td></tr>
+				<td align="center" colspan="2"><input type="submit" value="submit" name="submit"></td></tr>
 		</table>
 		</center>
 	</form:form>
    </body>
-<jsp:include page="./Footer.jsp" />
+<jsp:include page="Footer.jsp" />
 </html>

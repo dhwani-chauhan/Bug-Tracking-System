@@ -6,7 +6,7 @@
 <html>
   <head>
     <title>Login.html</title>
-  	<jsp:include page="./Header.jsp"></jsp:include>
+  	<jsp:include page="Header.jsp"></jsp:include>
     <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
   <body bgcolor="">
@@ -50,5 +50,5 @@
 		</center>
 	</form:form>
    </body>
-<jsp:include page="./Footer.jsp"/>
+<jsp:include page="Footer.jsp"/>
 </html>

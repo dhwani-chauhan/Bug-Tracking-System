@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
+@RequestMapping(path = "/bugReport")
 public class TesterController {
 
     @Autowired

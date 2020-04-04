@@ -3,7 +3,7 @@
 <%@page import="java.sql.*" %>
 <html>
     <head>
-        <jsp:include flush="true" page="./Header.jsp"></jsp:include>
+        <jsp:include flush="true" page="Header.jsp"></jsp:include>
         <link href="styles.css" type="text/css" rel="stylesheet">
         <script LANGUAGE="Javascript" SRC="Images/validate.js"></script>
         <title>Untitled Document</title>
