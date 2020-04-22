@@ -96,11 +96,36 @@ public class AdminService {
         return developerService.showAll();
     }
 
+    public Developer addEmp(Developer developer) throws Exception{
+        if(developer == null)
+            throw new Exception("No Employee Added");
+        return developerRepo.save(developer);
+    }
+
     public Developer findById(String id) throws Exception{
         Optional<Developer> developer = developerRepo.findById(id);
         if(!developer.isPresent())
             throw new Exception("No such developer exist");
         return developer.get();
+    }
+
+    public List<Developer> showAllEmp() throws Exception{
+        return developerRepo.findAll();
+    }
+
+    public Developer editProfile(Developer developer) throws Exception{
+        Developer developer1 = developerRepo.findById(developer.getUser_id());
+        if(developer.getEmail().equals(developer1.getEmail())){
+            developer1.setAddress(developer.getAddress());
+            developer1.setDob(developer.getDob());
+            developer1.setGender(developer.getGender());
+            developer1.setPh_no(developer.getPh_no());
+            developer1.setDoj(developer.getDoj());
+            developer1.setQualification(developer.getQualification());
+            developer1.setRole(developer.getRole());
+            developer = developerRepo.save(developer1);
+        }
+        return developer;
     }
 
     public BugReport changeStatus(int bug_no) throws Exception{

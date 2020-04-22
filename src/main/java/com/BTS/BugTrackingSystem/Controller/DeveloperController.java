@@ -1,6 +1,7 @@
 package com.BTS.BugTrackingSystem.Controller;
 
 import com.BTS.BugTrackingSystem.Model.BugSolution;
+import com.BTS.BugTrackingSystem.Model.Developer;
 import com.BTS.BugTrackingSystem.Service.DeveloperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

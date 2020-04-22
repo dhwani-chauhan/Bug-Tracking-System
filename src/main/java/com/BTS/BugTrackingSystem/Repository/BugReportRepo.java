@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BugReportRepo extends JpaRepository<BugReport,Integer> {
-    public String showStatus(int bug_no);
 }

@@ -29,8 +29,8 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/sol/")
-    public ResponseEntity showAllSol() {
+    @GetMapping(path="/sol/")
+    public ResponseEntity showAllSol() throws Exception{
         try {
             List<BugSolution> list = adminService.showAllSol();
             return correctResponse(list,HttpStatus.OK, HttpStatus.OK.value(),"Success",HttpStatus.OK);
@@ -51,13 +51,23 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/rep/")
-    public ResponseEntity showAllRe() {
+    @GetMapping(path="/rep/")
+    public ResponseEntity showAllRe() throws Exception{
         try {
             List<BugReport> list = adminService.showAllRe();
             return correctResponse(list,HttpStatus.OK, HttpStatus.OK.value(),"Success",HttpStatus.OK);
         }
         catch (Exception ex) {
+            return errorResponse(ex);
+        }
+    }
+
+    @PostMapping(path="/addEmp")
+    public ResponseEntity addEmp(@RequestBody Developer developer) throws Exception{
+        try{
+            Developer developer1 = adminService.addEmp(developer);
+                return correctResponse(developer1,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }catch (Exception ex){
             return errorResponse(ex);
         }
     }
@@ -73,8 +83,19 @@ public class AdminController {
         }
     }
 
+    @GetMapping(path = "/emp/")
+    public ResponseEntity showAllEmp() throws Exception{
+        try {
+            List<Developer> list = adminService.showAllEmp();
+            return correctResponse(list,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
+        }
+        catch (Exception ex) {
+            return errorResponse(ex);
+        }
+    }
+
     @PostMapping(path = "/addDept")
-    public ResponseEntity addDepartment(@RequestBody Department department){
+    public ResponseEntity addDepartment(@RequestBody Department department) throws Exception{
         try{
             Department department1 = adminService.addDept(department);
             return correctResponse(department1,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
@@ -106,8 +127,8 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/dept/")
-    public ResponseEntity showAllDept() {
+    @GetMapping(path="/dept/")
+    public ResponseEntity showAllDept() throws Exception{
         try {
             List<Department> list = adminService.showAllDept();
             return correctResponse(list,HttpStatus.OK, HttpStatus.OK.value(),"Success",HttpStatus.OK);
@@ -118,7 +139,7 @@ public class AdminController {
     }
 
     @PostMapping(path = "/addProject")
-    public ResponseEntity addProject(@RequestBody ProjectDetails projectDetails){
+    public ResponseEntity addProject(@RequestBody ProjectDetails projectDetails) throws Exception{
         try{
             ProjectDetails projectDetails1 = adminService.addProject(projectDetails);
             return correctResponse(projectDetails1,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
@@ -150,8 +171,8 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/project/")
-    public ResponseEntity showAllProject() {
+    @GetMapping(path="/project/")
+    public ResponseEntity showAllProject() throws Exception{
         try {
             List<ProjectDetails> list = adminService.showAllProject();
             return correctResponse(list,HttpStatus.OK, HttpStatus.OK.value(),"Success",HttpStatus.OK);

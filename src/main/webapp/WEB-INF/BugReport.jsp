@@ -3,7 +3,7 @@
 <%@ page import="com.BTS.BugTrackingSystem.*" %>
 <html>
   <head>
-    <title>Login.html</title>
+    <title>BugReport</title>
   	<jsp:include page="Header.jsp"></jsp:include>
     <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
 	<script type="text/javascript" language="javascrpt">
@@ -58,33 +58,33 @@
     </script>
   </head>
   <body bgcolor="">
-  <jsp:useBean id="bugs" class="com.BTS.BugTrackingSystem.Model.BugReport" scope="request" />
-<%--@elvariable id="BugReport" type=""--%>
-	<form:form modelAttribute="BugReport" action="/report">
+<%--  <jsp:useBean id="bugReport" beanName="com.BTS.BugTrackingSystem.Model.BugReport" type="com.BTS.BugTrackingSystem.Model.BugReport" scope="request" />--%>
+	<form:form modelAttribute="bugReport" action="report">
 		<center>
 		<h3><font color="#FBB117">Bug Information</font></h3>
 		<table border="0" cellpadding="2">
 			<tr>
 				<td align="right"><font ><b>Bug Type</b></font></td>
-				<td> <input type="text" name="bug_type" value="<jsp:setProperty name="bugs" property="bug_type"/>"></td></tr>
+				<td><form:input path="bug_type" name="bug_type" id="bug_type"/></td></tr>
 			<tr>
 				<td align="right"><font ><b>Bug Level</b></font></td>
-				<td> <input type="text" name="bug_level" value="<jsp:setProperty name="bugs" property="bug_level"/>"></td></tr>
+				<td><form:input path="bug_level" name="bug_level" id="bug_level" /></td></tr>
 			<tr>
 				<td align="right"><font><b>Priority</b></font></td>
-				<td> <input type="text" name="priority" value="<jsp:setProperty name="bugs" property="priority"/>"></td></tr>
+				<td> <form:input path="priority" name="priority" id="priority" /></td></tr>
 			<tr>
 				<td align="right"><font ><b>Project Name</b></font> </td>
-				<td><input type="text" name="pname" value="<jsp:setProperty name="bugs" property="p_name"/>"></td></tr>
+				<td><form:input path="pname" name="pname" id="pname" /></td></tr>
 			<tr>
 				<td align="right"><font ><b>Tester Code</b></font></td>
-				<td> <input type="text" name="tester_code" value="<jsp:setProperty name="bugs" property="tester_code"/>"></td></tr>
+				<td><form:input path="tester_code" name="tester_code" id="tester_code" /></td></tr>
 			<tr>
 				<td align="right"><font ><b>Bug Date</b></font> </td>
-				<td><input type="text" name="bug_date" value="<jsp:setProperty name="bugs" property="bug_date"/>"></td></tr>
+				<td><form:input path="bug_date" name="bug_date" id="bug_date" />
+<%--					<a href="javascript:show_calendar('document.testerForm.bug_date', document.testerForm.bug_date.value);">date</a></td></tr>--%>
 			<tr>
 				<td align="right"><font ><b>Employee code</b></font> </td>
-				<td><input type="text" name="e_code" value="<jsp:setProperty name="bugs" property="e_code"/>"></td></tr>
+				<td><form:input path="e_code" name="e_code" id="e_code" /></td></tr>
 			<tr>
 				<td align="right"><font ><b>Status</b></font></td>
 			<td>
@@ -98,9 +98,9 @@
 			</td></tr>
 			<tr>
 				<td align="right"><font><b>Bug Rectified date</b></font></td>
-				<td> <input type="text" name="bug_rectifed" value="<jsp:setProperty name="bugs" property="b_rectifiedDate"/>"></td></tr>
+				<td> <form:input path="b_rectifiedDate" name="b_rectifiedDate" id="b_rectifiedDate" /></td></tr>
 			<tr>
-				<td align="center" colspan="2"><input type="submit" value="submit"></td></tr>
+				<td align="center" colspan="2"><form:button id="submit" name="submit" value="Report Bug">Report Bug</form:button></td></tr>
 		</table>
 		</center>
 	</form:form>

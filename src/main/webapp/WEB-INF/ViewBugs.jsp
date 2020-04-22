@@ -5,13 +5,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>Login.html</title>
+    <title></title>
   	<jsp:include page="Header.jsp"></jsp:include>
     <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
   <body bgcolor="">
-  	<jsp:useBean id="bugs" class="com.BTS.BugTrackingSystem.Model.BugReport" scope="request" />
-	<form:form modelAttribute="BugReport" action="/viewbugs">
+<%--  	<jsp:useBean id="bugReport" class="com.BTS.BugTrackingSystem.Model.BugReport" type="com.BTS.BugTrackingSystem.Model.BugReport" scope="request" />--%>
+	<form:form modelAttribute="bugReport" action="viewbugs">
 		<br>
 		<center>
 		<h4 align="center"><font color="red"></font></h4>
@@ -33,17 +33,17 @@
 
 			<c:forEach items="" var="solve">
 				<tr>
-					<td><jsp:getProperty name="bugs" property="bug_name"/></td>
-					<td><jsp:getProperty name="bugs" property="bug_type"/></td>
-					<td><jsp:getProperty name="bugs" property="bug_level"/></td>
-					<td><jsp:getProperty name="bugs" property="priority"/></td>
-					<td><jsp:getProperty name="bugs" property="p_name"/></td>
-					<td><jsp:getProperty name="bugs" property="tester_code"/></td>
-					<td><jsp:getProperty name="bugs" property="bug_date"/></td>
-					<td><jsp:getProperty name="bugs" property="e_code"/></td>
-					<td><jsp:getProperty name="bugs" property="status"/></td>
-					<td><a href="./UpdateBug.jsp?bugid=<jsp:getProperty name="bugs" property="bug_no"/>">Update</a></td>
-					<td><a href="./ViewSolution.jsp?bugid=<jsp:getProperty name="bugs" property="bug_no"/>">View</a></td>
+					<td><form:label path="bug_name" id="bug_name" name="bug_name"/></td>
+					<td><form:label path="bug_type" id="bug_type" name="bug_type"/></td>
+					<td><form:label path="bug_level" id="bug_level" name="bug_level"/></td>
+					<td><form:label path="priority" id="priority" name="priority"/></td>
+					<td><form:label path="pname" id="pname" name="pname"/></td>
+					<td><form:label path="tester_code" id="tester_code" name="tester_code"/></td>
+					<td><form:label path="bug_date" id="bug_date" name="bug_date"/></td>
+					<td><form:label path="e_code" id="e_code" name="e_code"/></td>
+					<td><form:label path="status" id="status" name="status"/></td>
+					<td><a href="./UpdateBug.jsp?bugid=<form:label path="bug_no" id="bug_no" name="bug_no"/>">Update</a></td>
+					<td><a href="./sol/ViewSolution.jsp?bugid=<form:label path="bug_no" id="bug_no" name="bug_no"/>">View Solution</a></td>
 				</tr>
 			</c:forEach>
 		</table>

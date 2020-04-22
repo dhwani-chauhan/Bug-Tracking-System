@@ -6,14 +6,13 @@
 <%@page import="java.sql.*" %>
 <html>
   <head>
-    <title>Login.html</title>
+    <title>View Solutions</title>
   	<jsp:include page="Header.jsp"></jsp:include>
     <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
   <body bgcolor="">
-  <jsp:useBean id="bugs" class="com.BTS.BugTrackingSystem.Model.BugReport" scope="request" />
-<%--@elvariable id="BugSolution" type=""--%>
-	<form:form modelAttribute="BugSolution" action="/">
+<%--  <jsp:useBean id="bugSolution" class="com.BTS.BugTrackingSystem.Model.BugSolution" type="com.BTS.BugTrackingSystem.Model.BugSolution" scope="request" />--%>
+	<form:form modelAttribute="bugSolution" action="viewSolution">
 	<br>
 	<center>
 	<h4 align="center"><font color="red">
@@ -27,9 +26,9 @@
 			</tr>
 			<c:forEach items="" var="solve">
 				<tr>
-					<td><jsp:getProperty name="bugs" property="e_code"/></td>
-					<td><jsp:getProperty name="bugs" property="solution"/></td>
-					<td><jsp:getProperty name="bugs" property="bug_date"/></td>
+					<td><form:label path="e_code" id="e_code" name="e_code"/></td>
+					<td><form:label path="solution" id="solution" name="solution"/></td>
+					<td><form:label path="b_date" id="b_date" name="b_date"/></td>
 
 				</tr>
 			</c:forEach>

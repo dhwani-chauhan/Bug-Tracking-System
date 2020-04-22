@@ -59,7 +59,7 @@ public class TesterService {
     }
 
     public String checkStatus(int bug_no) throws Exception{
-        String status = reportRepo.showStatus(bug_no);
+        String status = reportRepo.findById(bug_no).get().getStatus();
         return status;
     }
 

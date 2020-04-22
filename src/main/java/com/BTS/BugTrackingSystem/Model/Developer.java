@@ -2,13 +2,12 @@ package com.BTS.BugTrackingSystem.Model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @AllArgsConstructor
@@ -18,13 +17,12 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 public class Developer {
-    @Id
     @NotBlank(message = "Name must not be empty")
     @Pattern(regexp = "[A-Za-z ]*", message = "Name must only contain alphabets and spaces")
-    private String user_name;
+    private String username;
 
-    @NotBlank(message = "ID must not be empty")
-    @Pattern(regexp = "[A-Za-z ]*", message = "ID must only contain alphabets and spaces")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String user_id;
 
     @NotBlank(message = "Password must not be empty")
@@ -39,8 +37,18 @@ public class Developer {
 
     private String status;
 
-    @NotBlank(message = "Contact number must not be empty")
-    @Size(min = 10, max = 10, message = "Contact number must be of 10 digits")
-    @Pattern(regexp = "^[^0].*", message="Contact number must not start with 0")
+    private String gender;
+
+    private String dob;
+
+    private String qualification;
+
+    private String doj;
+
+    private String role;
+
+//    @NotBlank(message = "Contact number must not be empty")
+//    @Size(min = 10, max = 10, message = "Contact number must be of 10 digits")
+//    @Pattern(regexp = "^[^0].*", message="Contact number must not start with 0")
     private int ph_no;
 }

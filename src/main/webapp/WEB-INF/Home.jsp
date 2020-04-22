@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		<a href="">Log IN</a>
+		<a href="login.jsp">Log IN</a>
 		<script type="text/javascript">
 		function check()
 			{
@@ -13,9 +13,9 @@
 		<table width="100%">
 			<tr>
 			<td align="">
-				<img src="./Images/header.jpeg" height="120"></img></td>
+				<img src="Images/header.jpeg" height="120"></img></td>
 			<td align="">
-				<font face="arial narrow" size="5px" color="orange"><b> Defect Tracking System</b></font></td>
+				<font face="arial narrow" size="5px" color="orange"><b> Bug Tracking System</b></font></td>
 			</tr>
 		</table>
 		<hr>

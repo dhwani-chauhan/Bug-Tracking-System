@@ -1,15 +1,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
+<%@ page import="com.BTS.BugTrackingSystem.*" %>
 <%@ page language="java" %>
 <%@ page session="true" %>
 <%@ page import="java.sql.*,java.io.*,java.util.Random"%>
 <html>
 	<head>
-		<jsp:include flush="true" page="Header.jsp"></jsp:include>
+		<jsp:include page="Header.jsp"></jsp:include>
 		<link href="styles.css" type="text/css" rel="stylesheet">
 		<script LANGUAGE="Javascript" SRC="Images/validate.js"></script>
-		<title>Adminresponse</title>
+		<title>All Projects</title>
 		<script language="javascript">
 			function Checkfiles()
 			{
@@ -45,7 +45,8 @@
 		</script>
 	</head>
 	<body class="SC">
-		<form:form modelAttribute="getProject" action="/viewProject">
+<%--		<jsp:useBean id="projectDetails" beanName="com.BTS.BugTrackingSystem.Model.ProjectDetails" type="com.BTS.BugTrackingSystem.Model.ProjectDetails"></jsp:useBean>--%>
+		<form:form modelAttribute="projectDetails" action="viewProj">
 			<h3 align=center>View Project</h3>
 			<br>
 			<table class=notebook align=center>
@@ -62,20 +63,20 @@
 					<th align="center">Delete</th>
 				</tr>
 				<tr>
-					<td align="center"><jsp:getProperty name="" property=""/></td>
-					<td align="center"><jsp:getProperty name="" property=""/></td>
-					<td align="center"><jsp:getProperty name="" property=""/></td>
-					<td align="center"><jsp:getProperty name="" property=""/></td>
-					<td align="center"><jsp:getProperty name="" property=""/></td>
-					<td align="center"><jsp:getProperty name="" property=""/></td>
-					<td align="center"><jsp:getProperty name="" property=""/></td>
-					<td align="center"><jsp:getProperty name="" property=""/></td>
-					<td align="center"><jsp:getProperty name="" property=""/></td>
-<%--				<td align="center"><a href="DelProj?pid=<%=pid%>">Delete</a></td>--%>
+					<td align="center"><form:label path="pname" id="pname" name="pname" /></td>
+					<td align="center"><form:label path="s_date" id="s_date" name="s_date" /></td>
+					<td align="center"><form:label path="duration" id="duration" name="duration" /></td>
+					<td align="center"><form:label path="c_name" id="c_name" name="c_name" /></td>
+					<td align="center"><form:label path="c_address" id="c_address" name="c_address" /></td>
+					<td align="center"><form:label path="c_phno" id="c_phno" name="c_phno" /></td>
+					<td align="center"><form:label path="c_email" id="c_email" name="c_email" /></td>
+					<td align="center"><form:label path="p_lead" id="p_lead" name="p_lead" /></td>
+					<td align="center"><form:label path="dept_name" id="dept_name" name="dept_name" /></td>
+					<td align="center"><a href="deleteProject?pid=<form:label path="p_no" id="p_no" name="p_no"/>">Delete</a></td>
 <%--						<tr><th colspan=5>No Records found</th></tr>--%>
 				</tr>
 			</table>
 		</form:form>
 	</body>
-	<jsp:include flush="true" page="Footer.jsp"/>
+	<jsp:include page="Footer.jsp"/>
 </html>

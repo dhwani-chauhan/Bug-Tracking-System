@@ -2,10 +2,12 @@ package com.BTS.BugTrackingSystem.Model;
 
 import lombok.*;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+@Entity
 @Getter
 @Setter
 @ToString

@@ -2,6 +2,7 @@ package com.BTS.BugTrackingSystem.Model;
 
 import lombok.*;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Pattern;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "bug_solution")
+@Entity
 public class BugSolution {
 
     @Id

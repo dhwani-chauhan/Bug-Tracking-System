@@ -2,6 +2,7 @@ package com.BTS.BugTrackingSystem.Controller;
 
 import com.BTS.BugTrackingSystem.Model.BugReport;
 import com.BTS.BugTrackingSystem.Model.BugSolution;
+import com.BTS.BugTrackingSystem.Model.Developer;
 import com.BTS.BugTrackingSystem.Service.TesterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ public class TesterController {
     private TesterService testerService;
 
     @PostMapping(path = "/add")
-    public ResponseEntity addSolution(@RequestBody BugReport bugReport){
+    public ResponseEntity addReport(@RequestBody BugReport bugReport){
         try{
             BugReport bugReport1 = testerService.addBug(bugReport);
             return correctResponse(bugReport1,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
@@ -31,7 +32,7 @@ public class TesterController {
     }
 
     @PostMapping(path = "/update")
-    public ResponseEntity editSolution(@RequestBody BugReport bugReport){
+    public ResponseEntity editReport(@RequestBody BugReport bugReport){
         try{
             BugReport bugReport1 = testerService.findById(bugReport.getBug_no());
             BugReport bugReport2 =testerService.updateBug(bugReport,bugReport1);
@@ -74,6 +75,7 @@ public class TesterController {
             return errorResponse(ex);
         }
     }
+
 
     private ResponseEntity errorResponse(Exception ex) {
         HashMap<Object, Object> response = new HashMap<>();
