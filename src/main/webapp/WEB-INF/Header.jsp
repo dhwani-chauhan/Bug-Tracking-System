@@ -10,7 +10,7 @@
         <style type="text/css">
 
             .dropbtn {
-                background-color: orange;
+                background-color: lightblue;
                 color: white;
                 padding: 10px;
                 font-size: 16px;
@@ -27,14 +27,14 @@
                 display: none;
                 position: absolute;
                 background-color: #f9f9f9;
-                min-width: 160px;
-                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                min-width: 120px;
+                box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
                 z-index: 1;
             }
 
             .dropdown-content a {
                 color: black;
-                padding: 12px 16px;
+                padding: 5px 7px;
                 text-decoration: none;
                 display: block;
             }
@@ -46,18 +46,19 @@
             }
 
             .dropdown:hover .dropbtn {
-                background-color: orange;
+                background-color: lightgrey;
             }
 
         </style>
 
     </head>
     <body bgcolor="white">
+
         <form>
-            <table width="100%" border=0 height="150px">
+            <table width="100%" border=0 height="90px">
                 <tr>
-                    <td align=""><img src="Images/header.jpeg" height="120"></img></td>
-                    <td align="center"><font face="arial narrow" size="8 px" color="orange"><b> Bug Tracking System</b></font></td>
+                    <td align=""><img src="./Images/header.png" height="50"></img></td>
+                    <td align="left"><font face="montserrat" size="5px" color="#add8e6"><b> Bug Tracking System</b></font></td>
                     <td align="right">
                         <form>
                             <div class="dropdown">
@@ -92,6 +93,9 @@
                                 <div class="dropdown-content" align="left">
                                     <a href="./ViewEmployee.jsp">View&nbsp;Employee</a>
                                     <a href="./UpdateEmployee.jsp">Update&nbsp;Employee</a>
+                                    <a href="./AssignBug.jsp">Assign Bug</a>
+                                    <a href="./AssignProject.jsp">Assign Project</a>
+
                                 </div>
                             </div>
 

@@ -6,8 +6,8 @@
 <%@ page import="java.sql.*,java.io.*,java.util.Random"%>
 <html>
 	<head>
-		<jsp:include page="Header.jsp"></jsp:include>
-		<link href="styles.css" type="text/css" rel="stylesheet">
+
+		<link href="../../resources/static/css/styles.css" type="text/css" rel="stylesheet">
 		<script LANGUAGE="Javascript" SRC="Images/validate.js"></script>
 		<title>All Projects</title>
 		<script language="javascript">
@@ -45,11 +45,12 @@
 		</script>
 	</head>
 	<body class="SC">
+	<jsp:include page="header1.jsp" />
 <%--		<jsp:useBean id="projectDetails" beanName="com.BTS.BugTrackingSystem.Model.ProjectDetails" type="com.BTS.BugTrackingSystem.Model.ProjectDetails"></jsp:useBean>--%>
 		<form:form modelAttribute="projectDetails" action="viewProj">
-			<h3 align=center>View Project</h3>
+			<h3 align=center>All Projects</h3>
 			<br>
-			<table class=notebook align=center>
+			<table class=notebook align=center cellspacing="0" cellpadding="8" border="2px solid black">
 				<tr class=row_title>
 					<th align="center">ProjectName</th>
 					<th align="center">Submission Date</th>
@@ -63,7 +64,7 @@
 					<th align="center">Delete</th>
 				</tr>
 				<tr>
-					<td align="center"><form:label path="pname" id="pname" name="pname" /></td>
+					<td align="center"><form:label path="p_name" id="p_name" name="p_name" /></td>
 					<td align="center"><form:label path="s_date" id="s_date" name="s_date" /></td>
 					<td align="center"><form:label path="duration" id="duration" name="duration" /></td>
 					<td align="center"><form:label path="c_name" id="c_name" name="c_name" /></td>

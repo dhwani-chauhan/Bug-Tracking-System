@@ -5,7 +5,7 @@
 <html>
   <head>
     <title>Assign Bug</title>
-  	<jsp:include page="Header.jsp" />
+
     <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
 	<script type="text/javascript" language="javascrpt">
     	function check()
@@ -53,9 +53,11 @@
     		}
        	}
     </script>
-	<script LANGUAGE="Javascript" src="dateget.js"></script>
+	<script LANGUAGE="Javascript" src="../../resources/static/js/dateget.js"></script>
   </head>
   <body bgcolor="">
+  <jsp:include page="header1.jsp" />
+
 <%--	<jsp:useBean id="assignBug" class="com.BTS.BugTrackingSystem.Model.AdminClass"  type ="com.BTS.BugTrackingSystem.Model.AdminClass" scope="request"></jsp:useBean>--%>
 	<form:form modelAttribute="assignBug" action="assignbug">
 		<center>
@@ -63,19 +65,19 @@
 		<h3><font color="#FBB117">Assign Bug</font></h3>
 		<table border="0" cellpadding="2" >
 			<tr>
-				<td align="right"><font>Bug_Name</font></td>
+				<td align="left"><font>Bug_Name</font></td>
 				<td><form:input path="bug_name" name="bug_name" id="bug_name"/></td></tr>
 			<tr>
-				<td align="right"><font>Bug_type</font></td>
+				<td align="left"><font>Bug_type</font></td>
 				<td><form:input path="bug_type" name="bug_type" id="bug_type"/></td></tr>
 			<tr>
-				<td align="right"><font>Bug_level</font></td>
+				<td align="left"><font>Bug_level</font></td>
 				<td><form:input path="bug_level" name="bug_level" id="bug_level" /></td></tr>
 			<tr>
-				<td align="right"><font>Priority</font></td>
+				<td align="left"><font>Priority</font></td>
 				<td><form:input path="priority" name="priority" id="priority" /></td></tr>
 			<tr>
-				<td align="right"><font>Project Name</font></td>
+				<td align="left"><font>Project Name</font></td>
 				<td>
 					<form:select path="pname">
 						<c:forEach items="${pname}" var="pname">
@@ -83,14 +85,14 @@
 						</c:forEach>
 					</form:select>
 			<tr>
-				<td align="right"><font>Tester Code</font></td>
+				<td align="left"><font>Tester Code</font></td>
 				<td> <form:input path="tester_code" name="tester_code" id="tester_code" /></td></tr>
 			<tr>
-				<td align="right"><font>Bug Date</font></td>
+				<td align="left"><font>Bug Date</font></td>
 				<td> <form:input path="b_date" name="b_date" id="b_date" />
 					<a href="javascript:show_calendar('document.testerForm.bug_date', document.testerForm.bug_date.value);">date</a></td></tr>
 			<tr>
-				<td align="right"><font>Employee code</font></td>
+				<td align="left"><font>Employee code</font></td>
 				<td>
 					<form:select path="e_code">
 						<c:forEach items="${e_code}" var="e_code">
@@ -99,7 +101,7 @@
 					</form:select>
 				</td>
 			</tr>
-			<tr><td align="right"><font>Status</font></td><td>
+			<tr><td align="left"><font>Status</font></td><td>
 				<form:select path="status">
                     <form:option value="--Select--"/>
                     <form:option value="Open"/>

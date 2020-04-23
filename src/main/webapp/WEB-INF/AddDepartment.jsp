@@ -5,8 +5,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
+        <link rel="stylesheet" href="css/Navigation-with-Button.css">
+        <link rel="stylesheet" href="css/style.css">
         <title>Add Department</title>
-        <jsp:include page="Header.jsp"></jsp:include>
+
         <script LANGUAGE="Javascript" >
             function ChkMandatoryField(F,T){
                 var val= F.value;
@@ -20,6 +22,8 @@
         </script>
     </head>
     <body bgcolor="silver">
+    <jsp:include page="header1.jsp"/>
+
 <%--        <jsp:useBean id="department" beanName="com.BTS.BugTrackingSystem.Model.Department" type="com.BTS.BugTrackingSystem.Model.Department"></jsp:useBean>--%>
         <form:form action="addDept" modelAttribute="department">
             <center>
@@ -27,11 +31,11 @@
             <center>
             <table>
                 <tr>
-                    <td>&nbsp;Department Name:</td>
+                    <td  align="left">&nbsp;Department Name:</td>
                     <td><form:input path="d_name" name="d_name" id="d_name" /></td>
                 </tr>
                 <tr>
-                    <td>Department Location:</td>
+                    <td align="left">Department Location:</td>
                     <td><form:input path="location" name="location" id="location" /></td>
                 </tr>
                 <tr>

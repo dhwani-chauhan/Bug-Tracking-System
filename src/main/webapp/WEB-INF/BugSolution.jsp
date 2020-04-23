@@ -4,8 +4,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title></title>
-  	<jsp:include page="Header.jsp"></jsp:include>
+    <title>Bug Solution</title>
+
     <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
 	<script type="text/javascript" language="javascrpt">
     	function check()
@@ -27,26 +27,28 @@
     		}
        	}
     </script>
-	<script LANGUAGE="Javascript" src="dateget.js"></script>
+	<script LANGUAGE="Javascript" src="../../resources/static/js/dateget.js"></script>
   </head>
   <body bgcolor="">
+  	<jsp:include page="header1.jsp" />
+
 <%--	<jsp:useBean id="bugSolution" beanName="com.BTS.BugTrackingSystem.Model.BugSolution" type="com.BTS.BugTrackingSystem.Model.BugSolution"/>--%>
 	<form:form modelAttribute="bugSolution" action="solution">
 		<center>
-		<h3><font color="#FBB117" face="arial narrow">Add Solution</font></h3>
+		<h3>BUG SOLUTION</h3>
 		<table border="0" cellpadding="2" >
 			<tr>
-				<td align="right"><font>Bug_No</font></td>
+				<td align="left"><font>Bug_No</font></td>
 				<td><form:input path="bug_no" name="bug_no" id="bug_no" /></td></tr>
 			<tr>
-				<td align="right"><font>Bug Date</font></td>
+				<td align="left"><font>Bug Date</font></td>
                 <td> <form:input path="b_date" name="b_date" id="b_date"/></td> </tr>
 			<tr>
-				<td align="right"><font>Employee code</font></td>
+				<td align="left"><font>Employee code</font></td>
 				<td> <form:input path="e_code" name="e_code" id="e_code"/></td></tr>
 
 			<tr>
-				<td align="right"><font>Solution</font></td><td>
+				<td align="left"><font>Solution</font></td><td>
 				<form:textarea path="solution" id="solution" name="solution" cols="20" rows="3"/></td>
 			</tr>
 			<tr>

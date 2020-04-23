@@ -4,10 +4,10 @@
 <%@ page session="true" %>
 <%@ page import="java.sql.*,java.io.*,java.util.Random"%>
 <html>
-	<jsp:include page="Header.jsp" />
+
 	<head>
 
-		<link href="styles.css" type="text/css" rel="stylesheet">
+		<link href="../../resources/static/css/styles.css" type="text/css" rel="stylesheet">
 		<script LANGUAGE="Javascript" SRC="Images/validate.js"></script>
 		<title>All Departments</title>
 		<script language="javascript">
@@ -45,11 +45,12 @@
 	</head>
 
 	<body class="SC">
+	<jsp:include page="header1.jsp" />
 <%--		<jsp:useBean id="department" beanName="com.BTS.BugTrackingSystem.Model.Department" type="com.BTS.BugTrackingSystem.Model.Department"/>--%>
 		<form:form modelAttribute="department" action="dept" id="department" method="get">
-			<h3 align="center">View Department</h3>
+			<h3 align="center">All Departments</h3>
 			<br>
-			<table class="notebook" align="center"  border="1" cellpadding="2" cellspacing="0" bordercolor="orange">
+			<table class=notebook align=center cellspacing="0" cellpadding="8" border="2px solid black">
 			<tr class="row_title">
 				<th align="center">Department Name</th>
 				<th align="center">Location</th>
@@ -63,6 +64,7 @@
 			</tr>
 			</table>
 		</form:form>
+
 	</body>
 	<jsp:include page="Footer.jsp" />
 </html>

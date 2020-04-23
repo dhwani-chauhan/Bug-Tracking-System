@@ -2,7 +2,8 @@
 <html>
 
 	<head>
-		<a href="login.jsp">Log IN</a>
+		<title>Home</title>
+		<link rel="stylesheet" href="css/styles.min.css">
 		<script type="text/javascript">
 		function check()
 			{
@@ -10,12 +11,13 @@
 		</script>
 	</head>
 	<body onload="return check()"><center>
+		<jsp:include page="header1.jsp" />
+
 		<table width="100%">
 			<tr>
-			<td align="">
-				<img src="Images/header.jpeg" height="120"></img></td>
-			<td align="">
-				<font face="arial narrow" size="5px" color="orange"><b> Bug Tracking System</b></font></td>
+				<td align="right">
+
+				</td>
 			</tr>
 		</table>
 		<hr>
@@ -23,7 +25,7 @@
 		<table width="80%" border=0 cellpadding=12>
 			<tr>
 				<td>
-				<p align="justify"> <font face="arial narrow"><b>
+				<p align="justify">
 					The Project entitled BUG TRACKING SYSTEM is a web based and intranet application aimed for the tracking
 				and resolution of bugs. All businesses have issues that need to be tracked and managed to resolution. Resolution
 				of these issues requires the coordination of multiple individuals within and perhaps even outside the company.
@@ -33,7 +35,7 @@
 				 The Online handling of reporting ensure that the project working hours will be prompt.
 				This also ensures well-disciplined authorization of users according to the project specification.
 				Usage of this application increases the productivity and quality of the project.
-				</b></font></p></td>
+				</p></td>
 			</tr>
 		</table>
 		</center>

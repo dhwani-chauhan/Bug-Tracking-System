@@ -5,9 +5,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
     <title>Login</title>
 </head>
 <body>
+<jsp:include page="header1.jsp" />
+
 <%--<jsp:useBean id="developer" beanName="com.BTS.BugTrackingSystem.Model.Developer" type="com.BTS.BugTrackingSystem.Model.Developer"/>--%>
 <form:form id="loginForm" modelAttribute="developer" action="loginProcess" method="post">
     <table align="center">
@@ -41,6 +44,7 @@
         </tr>
     </table>
 </form:form>
+
 <table align="center">
     <tr>
         <td style="font-style: italic; color: red;">${message}</td>

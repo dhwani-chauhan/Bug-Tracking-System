@@ -5,18 +5,19 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title></title>
-  	<jsp:include page="Header.jsp"></jsp:include>
-    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <title>All Bugs</title>
+
+    <link rel="stylesheet" type="text/css" href="../../resources/static/css/styles.css">
   </head>
   <body bgcolor="">
+  <jsp:include page="header1.jsp" />
 <%--  	<jsp:useBean id="bugReport" class="com.BTS.BugTrackingSystem.Model.BugReport" type="com.BTS.BugTrackingSystem.Model.BugReport" scope="request" />--%>
 	<form:form modelAttribute="bugReport" action="viewbugs">
 		<br>
 		<center>
 		<h4 align="center"><font color="red"></font></h4>
-		<h3><font color="#FBB117" face="arial narrow">&nbsp;&nbsp;&nbsp;&nbsp;View All Bugs</font></h3>
-		<table border="1" cellpadding="2" cellspacing="0" bordercolor="orange">
+		<h3 align="center">All Bugs</h3>
+		<table class=notebook align=center cellspacing="0" cellpadding="8" border="2px solid black">
 			<tr>
 				<th>Bug Name</th>
 				<th>Bug Type</th>
@@ -43,7 +44,7 @@
 					<td><form:label path="e_code" id="e_code" name="e_code"/></td>
 					<td><form:label path="status" id="status" name="status"/></td>
 					<td><a href="./UpdateBug.jsp?bugid=<form:label path="bug_no" id="bug_no" name="bug_no"/>">Update</a></td>
-					<td><a href="./sol/ViewSolution.jsp?bugid=<form:label path="bug_no" id="bug_no" name="bug_no"/>">View Solution</a></td>
+					<td><a href="./ViewSolution.jsp?bugid=<form:label path="bug_no" id="bug_no" name="bug_no"/>">View Solution</a></td>
 				</tr>
 			</c:forEach>
 		</table>

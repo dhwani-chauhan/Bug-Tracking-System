@@ -5,7 +5,7 @@
 <%@ page import="java.sql.*,java.io.*,java.util.Random"%>
 <html>
 	<head>
-		<link href="styles.css" type="text/css" rel="stylesheet">
+		<link href="../../resources/static/css/styles.css" type="text/css" rel="stylesheet">
 		<script LANGUAGE="Javascript" SRC="Images/validate.js"></script>
 		<title>Adminresponse</title>
 	</head>

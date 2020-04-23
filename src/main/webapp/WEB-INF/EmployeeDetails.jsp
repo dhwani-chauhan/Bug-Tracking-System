@@ -3,8 +3,7 @@
 <%@page import="java.sql.*" %>
 <html>
     <head>
-        <jsp:include flush="true" page="Header.jsp"></jsp:include>
-        <link href="styles.css" type="text/css" rel="stylesheet">
+        <link href="../../resources/static/css/styles.css" type="text/css" rel="stylesheet">
         <script LANGUAGE="Javascript" SRC="Images/validate.js"></script>
         <title>Employee Details</title>
 <%--        <script language="javascript">--%>
@@ -26,22 +25,23 @@
 <%--        </script>--%>
     </head>
     <body class="SC">
+    <jsp:include page="header1.jsp" />
+
 <%--    <jsp:useBean id="developer" beanName="com.BTS.BugTrackingSystem.Model.Developer" type="com.BTS.BugTrackingSystem.Model.Developer"></jsp:useBean>--%>
         <form:form modelAttribute="developer" action="employee">
             <h3 align=center><center>Employee Details</center></h3>
 
-           <table class=notebook align=center>
+            <table class=notebook align=center cellspacing="0" cellpadding="8" border="2px solid black">
                 <tr class=row_title>
-                    <th align="center">EmployeeName</th>
+                    <th align="center">Employee Name</th>
                     <th align="center">Gender</th>
                     <th align="center">Date Of Birth</th>
                     <th align="center">Qualification</th>
                     <th align="center">Address</th>
-                    <th align="center">MobileNo</th>
+                    <th align="center">Mobile No</th>
                     <th align="center">EmailId</th>
                     <th align="center">Date Of Joining</th>
                     <th align="center">Role</th>
-
                 </tr>
                 <tr>
                     <td align="center"><form:input path="username" name="u_name" id="u_name" /></td>
@@ -53,7 +53,6 @@
                     <td align="center"><form:input path="email" name="email" id="email" /></td>
                     <td align="center"><form:input path="doj" name="doj" id="doj" /></td>
                     <td align="center"><form:input path="role" name="role" id="role" /></td>
-
                 </tr>
            </table>
         </form:form>

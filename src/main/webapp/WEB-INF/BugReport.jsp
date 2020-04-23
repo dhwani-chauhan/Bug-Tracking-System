@@ -3,8 +3,7 @@
 <%@ page import="com.BTS.BugTrackingSystem.*" %>
 <html>
   <head>
-    <title>BugReport</title>
-  	<jsp:include page="Header.jsp"></jsp:include>
+    <title>Bug Report</title>
     <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
 	<script type="text/javascript" language="javascrpt">
     	function check()
@@ -58,35 +57,37 @@
     </script>
   </head>
   <body bgcolor="">
+  <jsp:include page="header1.jsp" />
+
 <%--  <jsp:useBean id="bugReport" beanName="com.BTS.BugTrackingSystem.Model.BugReport" type="com.BTS.BugTrackingSystem.Model.BugReport" scope="request" />--%>
 	<form:form modelAttribute="bugReport" action="report">
 		<center>
-		<h3><font color="#FBB117">Bug Information</font></h3>
+		<h3>BUG REPORT</h3>
 		<table border="0" cellpadding="2">
 			<tr>
-				<td align="right"><font ><b>Bug Type</b></font></td>
+				<td align="left">Bug Type</td>
 				<td><form:input path="bug_type" name="bug_type" id="bug_type"/></td></tr>
 			<tr>
-				<td align="right"><font ><b>Bug Level</b></font></td>
+				<td align="left">Bug Level</td>
 				<td><form:input path="bug_level" name="bug_level" id="bug_level" /></td></tr>
 			<tr>
-				<td align="right"><font><b>Priority</b></font></td>
+				<td align="left">Priority</td>
 				<td> <form:input path="priority" name="priority" id="priority" /></td></tr>
 			<tr>
-				<td align="right"><font ><b>Project Name</b></font> </td>
+				<td align="left">Project Name</td>
 				<td><form:input path="pname" name="pname" id="pname" /></td></tr>
 			<tr>
-				<td align="right"><font ><b>Tester Code</b></font></td>
+				<td align="left">Tester Code</td>
 				<td><form:input path="tester_code" name="tester_code" id="tester_code" /></td></tr>
 			<tr>
-				<td align="right"><font ><b>Bug Date</b></font> </td>
+				<td align="left">Bug Date</td>
 				<td><form:input path="bug_date" name="bug_date" id="bug_date" />
 <%--					<a href="javascript:show_calendar('document.testerForm.bug_date', document.testerForm.bug_date.value);">date</a></td></tr>--%>
 			<tr>
-				<td align="right"><font ><b>Employee code</b></font> </td>
+				<td align="left">Employee code</td>
 				<td><form:input path="e_code" name="e_code" id="e_code" /></td></tr>
 			<tr>
-				<td align="right"><font ><b>Status</b></font></td>
+				<td align="left">Status</td>
 			<td>
 			<select name="status">
 				<option value="select">---select---</option>
@@ -97,7 +98,7 @@
 			</select>
 			</td></tr>
 			<tr>
-				<td align="right"><font><b>Bug Rectified date</b></font></td>
+				<td align="left">Bug Rectified date</td>
 				<td> <form:input path="b_rectifiedDate" name="b_rectifiedDate" id="b_rectifiedDate" /></td></tr>
 			<tr>
 				<td align="center" colspan="2"><form:button id="submit" name="submit" value="Report Bug">Report Bug</form:button></td></tr>

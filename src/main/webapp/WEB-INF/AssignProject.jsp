@@ -5,7 +5,7 @@
 <html>
   <head>
     <title>Assign Project</title>
-  	<jsp:include page="Header.jsp" />
+
     <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
 	<script type="text/javascript" language="javascrpt">
     	function check()
@@ -29,6 +29,7 @@
     </script>
   </head>
   <body bgcolor="">
+  <jsp:include page="header1.jsp" />
 <%--	<jsp:useBean id="assignProject" beanName="com.BTS.BugTrackingSystem.Model.AssignProject" type="com.BTS.BugTrackingSystem.Model.AssignProject" scope="request"  />--%>
 	<form:form modelAttribute="assignProject" action="assignproject">
 	   <p><font color="red"></font></p>
@@ -36,7 +37,7 @@
 		<h3><font color="#FBB117">&nbsp;&nbsp;&nbsp;&nbsp;Assign Project</font></h3>
 		<table border="0" cellpadding="2">
 			<tr>
-				<td align="right"><font><b>Project Name</b></font></td>
+				<td align="left"><font><b>Project Name</b></font></td>
 				<td>
 					<form:select path="pname">
 						<c:forEach items="${pname}" var="pname">
@@ -44,7 +45,7 @@
                         </c:forEach>
 					</form:select>
 			<tr>
-				<td align="right"><font><b>Employee code</b></font></td>
+				<td align="left"><font><b>Employee code</b></font></td>
 				<td>
 					<form:select path="e_code">
                         <c:forEach items="${e_code}" var="e_code">
@@ -54,7 +55,7 @@
                 </td>
             </tr>
 			<tr>
-				<td align="right"><font><b>Role</b></font></td>
+				<td align="left"><font><b>Role</b></font></td>
 				<td> <form:input path="role" id="role" name="role" /></td></tr>
 			<tr>
 				<td align="center" colspan="2">

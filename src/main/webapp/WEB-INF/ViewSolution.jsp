@@ -6,19 +6,20 @@
 <%@page import="java.sql.*" %>
 <html>
   <head>
-    <title>View Solutions</title>
-  	<jsp:include page="Header.jsp"></jsp:include>
-    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <title>All Solutions</title>
+
+    <link rel="stylesheet" type="text/css" href="../../resources/static/css/styles.css">
   </head>
   <body bgcolor="">
+  <jsp:include page="header1.jsp" />
 <%--  <jsp:useBean id="bugSolution" class="com.BTS.BugTrackingSystem.Model.BugSolution" type="com.BTS.BugTrackingSystem.Model.BugSolution" scope="request" />--%>
 	<form:form modelAttribute="bugSolution" action="viewSolution">
 	<br>
 	<center>
 	<h4 align="center"><font color="red">
 		</font></h4>
-		<h3><font color="#FBB117" face="arial narrow">View Solution</font></h3>
-		<table border="1" cellpadding="2" cellspacing="0" bordercolor="orange">
+		<h3 align="center">All Solutions</h3>
+		<table class=notebook align=center cellspacing="0" cellpadding="8" border="2px solid black">
 			<tr>
 				<th>Employee Code</th>
 				<th>Solution</th>
@@ -35,6 +36,7 @@
 		</table>
 		</center>
 	</form:form>
+
   	<jsp:include page="Footer.jsp" />
   </body>
 </html>
