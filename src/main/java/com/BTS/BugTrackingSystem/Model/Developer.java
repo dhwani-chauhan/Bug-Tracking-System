@@ -27,7 +27,7 @@ public class Developer {
 
     @NotBlank(message = "Password must not be empty")
     @Pattern(regexp ="(?=.*[a-z])(?=.*\\d)(?=.*[A-Z]).{8,40}", message = "Password must contain a lowercase, a uppercase, a digit and it must be greater than 8 characters")
-    private String u_password;
+    private String password;
 
     @Email(message = "Email must not be empty")
     @Pattern(regexp="^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", message = "Email Address not valid")
@@ -51,4 +51,6 @@ public class Developer {
 //    @Size(min = 10, max = 10, message = "Contact number must be of 10 digits")
 //    @Pattern(regexp = "^[^0].*", message="Contact number must not start with 0")
     private int ph_no;
+
+    private boolean isRegistered = false;
 }

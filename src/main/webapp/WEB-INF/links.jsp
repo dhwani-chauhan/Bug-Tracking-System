@@ -1,47 +1,117 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
-<html>
-    <head>
-    <title>LogIn</title>
-    <style>
-        .login-dark {
-            height: 650px;
-            background: url(../Images/star-sky.jpg) #475d62;
-            background-size: auto;
-            background-size: cover;
-            position: relative;
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../resources/static/css/styles.min.css">
+<%--    <link rel="stylesheet" href="../../resources/static/css/style.css">--%>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <style type="text/css">
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
         }
-        .login-dark form {
-            max-width: 320px;
+
+        body {
+            margin: 0;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+            background-color: #fff;
+        }
+
+        .register-photo {
+            background: #f1f7fc;
+            padding: 80px 0;
+        }
+
+        .register-photo .form-container {
+            display: table;
+            max-width: 900px;
             width: 90%;
-            background-color: #1e2833;
-            padding: 40px;
-            border-radius: 4px;
-            transform: translate(-50%,-50%);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            color: #fff;
-            box-shadow: 3px 3px 4px rgba(0,0,0,.2);
+            margin: 0 auto;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
         }
-        .login-dark .illustration {
-            text-align: center;
-            padding: 15px 0 20px;
-            font-size: 100px;
-            color: #2980ef;
+
+        @media (max-width:991px) {
+            .register-photo form {
+                padding: 40px;
+            }
         }
-        .login-dark form .form-control {
-            background: 0 0;
+
+        .register-photo form {
+            display: table-cell;
+            width: 400px;
+            background-color: #ffffff;
+            padding: 40px 60px;
+            color: #505e6c;
+        }
+
+        .register-photo form h2 {
+            font-size: 24px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .text-center {
+            text-align: center!important;
+        }
+
+        .h2, h2 {
+            font-size: 2rem;
+        }
+
+        .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+            margin-bottom: .5rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: .5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .register-photo form .form-control {
+            background: #f7f9fc;
             border: none;
-            border-bottom-color: currentcolor;
-            border-bottom-style: none;
-            border-bottom-width: medium;
-            border-bottom: 1px solid #434a52;
+            border-bottom: 1px solid #dfe7f1;
             border-radius: 0;
             box-shadow: none;
-            outline: 0;
+            outline: none;
             color: inherit;
+            text-indent: 6px;
+            height: 40px;
         }
+
+        .form-control:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            .form-control {
+                transition: none;
+            }
+        }
+
         .form-control {
             display: block;
             width: 100%;
@@ -57,62 +127,70 @@
             border-radius: .25rem;
             transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
         }
+
         button, input {
             overflow: visible;
         }
+
         button, input, optgroup, select, textarea {
             margin: 0;
             font-family: inherit;
             font-size: inherit;
             line-height: inherit;
         }
-        .form-group {
-            margin-bottom: 1rem;
-        }
+
         .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(38,143,255,.5);
         }
+
         .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
             color: #fff;
             background-color: #0062cc;
             border-color: #005cbf;
         }
-        .login-dark form .btn-primary:active {
+
+        .register-photo form .btn-primary:active {
             transform: translateY(1px);
         }
-        .login-dark form .btn-primary:hover, .login-dark form .btn-primary:active {
-            background: #214a80;
-            outline: none;
+
+        .register-photo form .btn-primary:hover, .register-photo form .btn-primary:active {
+            background: #eb3b60;
         }
-        .login-dark form .btn-primary {
-            background: #214a80;
+
+        .register-photo form .btn-primary {
+            background: #f4476b;
             border: none;
             border-radius: 4px;
             padding: 11px;
             box-shadow: none;
-            margin-top: 26px;
+            margin-top: 35px;
             text-shadow: none;
-            outline: none;
+            outline: none !important;
         }
+
         .btn-primary.focus, .btn-primary:focus {
             color: #fff;
             background-color: #0069d9;
             border-color: #0062cc;
             box-shadow: 0 0 0 .2rem rgba(38,143,255,.5);
         }
+
         .btn-primary:hover {
             color: #fff;
             background-color: #0069d9;
             border-color: #0062cc;
         }
+
         .btn.focus, .btn:focus {
             outline: 0;
             box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
         }
+
         .btn:hover {
             color: #212529;
             text-decoration: none;
         }
+
         [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
             cursor: pointer;
         }
@@ -177,61 +255,14 @@
             font-size: inherit;
             line-height: inherit;
         }
-
         button {
             border-radius: 0;
-        }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0,0,0,0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        .h2, h2 {
-            font-size: 2rem;
-        }
-
-        .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-            margin-bottom: .5rem;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            margin-top: 0;
-            margin-bottom: .5rem;
         }
 
 
     </style>
-    </head>
-    <body>
-        <jsp:include page="links.jsp"/>
-        <div class="login-dark">
-            <form>
-                <h2 class="sr-only"> Log In</h2>
-                <form:form method="post"  id="loginForm" modelAttribute="developer" action="login">
-                    <div class="illustration">
-                        <i class="icon ion-ios-locked-outline"></i>
-                    </div>
-                    <div class="form-group">
-                        <form:input class="form-control" path="username" name="username" placeholder="Enter UserName"/>
-                    </div>
-                    <div class="form-group">
-                        <form:password class="form-control" path="password" name="password" placeholder="Enter Password"/>
-                    </div>
-                    <div class="form-group">
-                        <form:button class="btn btn-primary btn-block" id="login" name="login">Log In</form:button>
-                    </div>
-                    <a class="btn btn-primary btn-block" href="Home.jsp">Home</a>
-                </form:form>
-            </form>
-        </div>
-    </body>
-</html>
+    <script LANGUAGE="Javascript" src="../../resources/static/js/dateget.js"></script>
+
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>

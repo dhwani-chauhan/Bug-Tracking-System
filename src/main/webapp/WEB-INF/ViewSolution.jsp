@@ -1,20 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ taglib prefix="forms" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page import="com.BTS.BugTrackingSystem.*" %>
-<%@page import="java.sql.*" %>
+<!DOCTYPE HTML>
 <html>
   <head>
-    <title>All Solutions</title>
-
-    <link rel="stylesheet" type="text/css" href="../../resources/static/css/styles.css">
+	  <title>All Solutions</title>
   </head>
-  <body bgcolor="">
+  <body>
+  <jsp:include page="links.jsp"/>
   <jsp:include page="header1.jsp" />
-<%--  <jsp:useBean id="bugSolution" class="com.BTS.BugTrackingSystem.Model.BugSolution" type="com.BTS.BugTrackingSystem.Model.BugSolution" scope="request" />--%>
-	<form:form modelAttribute="bugSolution" action="viewSolution">
-	<br>
 	<center>
 	<h4 align="center"><font color="red">
 		</font></h4>
@@ -25,18 +17,15 @@
 				<th>Solution</th>
 				<th>Date</th>
 			</tr>
-			<c:forEach items="" var="solve">
+			<c:forEach items="${viewSolution}" var="viewSolution">
 				<tr>
-					<td><form:label path="e_code" id="e_code" name="e_code"/></td>
-					<td><form:label path="solution" id="solution" name="solution"/></td>
-					<td><form:label path="b_date" id="b_date" name="b_date"/></td>
-
+					<td>${viewSolution.e_code}\</td>
+					<td>${viewSolution.solution}</td>
+					<td>${viewSolution.b_date}</td>
 				</tr>
 			</c:forEach>
 		</table>
 		</center>
-	</form:form>
-
-  	<jsp:include page="Footer.jsp" />
+  <jsp:include page="Footer.jsp" />
   </body>
 </html>

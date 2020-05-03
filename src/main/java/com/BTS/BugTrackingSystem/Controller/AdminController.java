@@ -18,50 +18,6 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @GetMapping(path="/find/{sid}")
-    public ResponseEntity findSolById(@RequestBody int sid) throws Exception{
-        try {
-            BugSolution bugSolution = adminService.findSolById(sid);
-            return correctResponse(bugSolution,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
-        }
-        catch (Exception ex) {
-            return errorResponse(ex);
-        }
-    }
-
-    @GetMapping(path="/sol/")
-    public ResponseEntity showAllSol() throws Exception{
-        try {
-            List<BugSolution> list = adminService.showAllSol();
-            return correctResponse(list,HttpStatus.OK, HttpStatus.OK.value(),"Success",HttpStatus.OK);
-        }
-        catch (Exception ex) {
-            return errorResponse(ex);
-        }
-    }
-
-    @GetMapping(path="/find/{rid}")
-    public ResponseEntity findReById(@RequestBody int rid) throws Exception{
-        try {
-            BugReport bugReport = adminService.findReById(rid);
-            return correctResponse(bugReport,HttpStatus.OK,HttpStatus.OK.value(),"Success",HttpStatus.OK);
-        }
-        catch (Exception ex) {
-            return errorResponse(ex);
-        }
-    }
-
-    @GetMapping(path="/rep/")
-    public ResponseEntity showAllRe() throws Exception{
-        try {
-            List<BugReport> list = adminService.showAllRe();
-            return correctResponse(list,HttpStatus.OK, HttpStatus.OK.value(),"Success",HttpStatus.OK);
-        }
-        catch (Exception ex) {
-            return errorResponse(ex);
-        }
-    }
-
     @PostMapping(path="/addEmp")
     public ResponseEntity addEmp(@RequestBody Developer developer) throws Exception{
         try{
@@ -94,7 +50,7 @@ public class AdminController {
         }
     }
 
-    @PostMapping(path = "/addDept")
+    @PostMapping(path = "/dept/addDept")
     public ResponseEntity addDepartment(@RequestBody Department department) throws Exception{
         try{
             Department department1 = adminService.addDept(department);
@@ -105,7 +61,7 @@ public class AdminController {
         }
     }
 
-    @DeleteMapping(path = "/deleteDept/{id}")
+    @DeleteMapping(path = "/dept/deleteDept/{id}")
     public ResponseEntity deleteDept(@PathVariable int id) throws Exception{
         try{
             adminService.deleteDept(id);
@@ -116,7 +72,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping(path="/findDept/{id}")
+    @GetMapping(path="/dept/findDept/{id}")
     public ResponseEntity findDeptById(@RequestBody int id) throws Exception{
         try {
             Department department = adminService.findDeptById(id);
@@ -138,7 +94,7 @@ public class AdminController {
         }
     }
 
-    @PostMapping(path = "/addProject")
+    @PostMapping(path = "/pro/addProject")
     public ResponseEntity addProject(@RequestBody ProjectDetails projectDetails) throws Exception{
         try{
             ProjectDetails projectDetails1 = adminService.addProject(projectDetails);
@@ -149,7 +105,7 @@ public class AdminController {
         }
     }
 
-    @DeleteMapping(path = "/deleteProject/{id}")
+    @DeleteMapping(path = "/pro/deleteProject/{id}")
     public ResponseEntity deleteProject(@PathVariable int id) throws Exception{
         try{
             adminService.deleteProject(id);
@@ -160,7 +116,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping(path="/findProject/{id}")
+    @GetMapping(path="/pro/findProject/{id}")
     public ResponseEntity findProjectById(@RequestBody int id) throws Exception{
         try {
             ProjectDetails projectDetails = adminService.findProjectById(id);
@@ -171,7 +127,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping(path="/project/")
+    @GetMapping(path="/pro/")
     public ResponseEntity showAllProject() throws Exception{
         try {
             List<ProjectDetails> list = adminService.showAllProject();

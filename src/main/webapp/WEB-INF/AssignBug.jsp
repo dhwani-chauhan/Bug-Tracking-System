@@ -1,118 +1,64 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="java.sql.*" %>
+<!DOCTYPE HTML>
 <html>
   <head>
-    <title>Assign Bug</title>
-
-    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
-	<script type="text/javascript" language="javascrpt">
-    	function check()
-    	{
-    	   if(testerForm.bug_name.value=='')
-    		{
-    			window.alert("Bug Name is empty !");
-    			return false;
-    		}
-    		if(testerForm.bug_type.value=='')
-    		{
-    			window.alert("Bug Type is empty !");
-    			return false;
-    		}
-    		if(testerForm.bug_level.value=='')
-    		{
-    			window.alert("Bug Level is empty !");
-    			return false;
-    		}
-    		if(testerForm.priority.value=='')
-    		{
-    			window.alert("Bug Priority is empty !");
-    			return false;
-    		}
-    		
-    		if(testerForm.tester_code.value=='')
-    		{
-    			window.alert("Tester code is empty !");
-    			return false;
-    		}
-    		if(testerForm.bug_date.value=='')
-    		{
-    			window.alert("Bug Date is empty !");
-    			return false;
-    		}
-    		if(testerForm.e_code.value=="select")
-    		{
-    			window.alert("Employee Code is empty !");
-    			return false;
-    		}
-    		if(testerForm.status.value=="select")
-    		{
-    			window.alert("Select Status !");
-    			return false;
-    		}
-       	}
-    </script>
-	<script LANGUAGE="Javascript" src="../../resources/static/js/dateget.js"></script>
+	  <title>Assign Bug</title>
   </head>
-  <body bgcolor="">
-  <jsp:include page="header1.jsp" />
-
-<%--	<jsp:useBean id="assignBug" class="com.BTS.BugTrackingSystem.Model.AdminClass"  type ="com.BTS.BugTrackingSystem.Model.AdminClass" scope="request"></jsp:useBean>--%>
-	<form:form modelAttribute="assignBug" action="assignbug">
-		<center>
-		<h5 align="center"><font color="red"></font></h5>
-		<h3><font color="#FBB117">Assign Bug</font></h3>
-		<table border="0" cellpadding="2" >
-			<tr>
-				<td align="left"><font>Bug_Name</font></td>
-				<td><form:input path="bug_name" name="bug_name" id="bug_name"/></td></tr>
-			<tr>
-				<td align="left"><font>Bug_type</font></td>
-				<td><form:input path="bug_type" name="bug_type" id="bug_type"/></td></tr>
-			<tr>
-				<td align="left"><font>Bug_level</font></td>
-				<td><form:input path="bug_level" name="bug_level" id="bug_level" /></td></tr>
-			<tr>
-				<td align="left"><font>Priority</font></td>
-				<td><form:input path="priority" name="priority" id="priority" /></td></tr>
-			<tr>
-				<td align="left"><font>Project Name</font></td>
-				<td>
-					<form:select path="pname">
-						<c:forEach items="${pname}" var="pname">
-							<form:option value="${pname}">${pname}</form:option>
-						</c:forEach>
-					</form:select>
-			<tr>
-				<td align="left"><font>Tester Code</font></td>
-				<td> <form:input path="tester_code" name="tester_code" id="tester_code" /></td></tr>
-			<tr>
-				<td align="left"><font>Bug Date</font></td>
-				<td> <form:input path="b_date" name="b_date" id="b_date" />
-					<a href="javascript:show_calendar('document.testerForm.bug_date', document.testerForm.bug_date.value);">date</a></td></tr>
-			<tr>
-				<td align="left"><font>Employee code</font></td>
-				<td>
-					<form:select path="e_code">
-						<c:forEach items="${e_code}" var="e_code">
-							<form:option value="${e_code}">${e_code}</form:option>
-						</c:forEach>
-					</form:select>
-				</td>
-			</tr>
-			<tr><td align="left"><font>Status</font></td><td>
-				<form:select path="status">
-                    <form:option value="--Select--"/>
-                    <form:option value="Open"/>
-                    <form:option value="Close"/>
-				</form:select>
-
-			</td></tr>
-			<tr><td align="center" colspan="2"><form:button id="submit" value="Assign Bug" name="submit">Assign Bug</form:button></td></tr>
-		</table>
-		</center>
-  	</form:form>
-   </body>
+  <body>
+  	<jsp:include page="links.jsp"/>
+  	<jsp:include page="header1.jsp" />
+	<div class="register-photo">
+		<div class="form-container">
+			<form>
+				<h2 class="text-center">Assign Bug</h2>
+				<form:form modelAttribute="assignBug" action="assignBug" id="assignBug">
+					<div class="form-group">
+						<form:input class="form-control" path="bug_name" name="bug_name" id="bug_name" placeholder="Bug Name"/>
+					</div>
+					<div class="form-group">
+						<form:input class="form-control" path="bug_type" name="bug_type" id="bug_type" placeholder="Bug Type"/>
+					</div>
+					<div class="form-group">
+						<form:input class="form-control" path="bug_level" name="bug_level" id="bug_level" placeholdeer="Bug Level"/>
+					</div>
+					<div class="form-group">
+						<form:input class="form-control" path="priority" name="priority" id="priority" placeholder="Priority"/>
+					</div>
+					<div class="form-group">
+						<form:select path="pname" class="form-control">
+							<c:forEach items="${pName}" var="pName">
+								<form:option value="${pName}">${pName}</form:option>
+							</c:forEach>
+						</form:select>
+					</div>
+					<div class="form-group">
+						<form:input class="form-control" path="tester_code" name="tester_code" id="tester_code" placeholder="Tester Code" />
+					</div>
+					<div class="form-group">
+						<form:input class="form-control" path="b_date" name="b_date" id="b_date" placeholder="Bug Date"/>
+					</div>
+					<div class="form-group">
+						<form:select path="e_code" class="form-control">
+							<c:forEach items="${eCode}" var="eCode">
+								<form:option value="${eCode}">${eCode}</form:option>
+							</c:forEach>
+						</form:select>
+					</div>
+					<div class="form-group">
+						<form:select path="status" class="form-control" >
+							<form:option value="--Select--"/>
+							<form:option value="Open"/>
+							<form:option value="Close"/>
+						</form:select>
+					</div>
+					<div class="form-group">
+						<form:button class="btn btn-primary btn-block" id="submit" name="assignBug">Assign Bug</form:button>
+					</div>
+				</form:form>
+			</form>
+		</div>
+	</div>
 	<jsp:include page="Footer.jsp" />
+   </body>
 </html>

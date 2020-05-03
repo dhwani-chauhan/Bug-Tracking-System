@@ -2,8 +2,12 @@
 <html>
 
 	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../resources/static/css/styles.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
 		<title>Home</title>
-		<link rel="stylesheet" href="css/styles.min.css">
+		<link rel="stylesheet" href="../../resources/static/css/styles.min.css">
 		<script type="text/javascript">
 		function check()
 			{
@@ -39,6 +43,9 @@
 			</tr>
 		</table>
 		</center>
-	</body>
 	<jsp:include page="Footer.jsp" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+	</body>
+
 </html>

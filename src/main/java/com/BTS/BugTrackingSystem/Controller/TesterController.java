@@ -14,13 +14,13 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/bugReport")
+@RequestMapping(path = "/rep")
 public class TesterController {
 
     @Autowired
     private TesterService testerService;
 
-    @PostMapping(path = "/add")
+    @PostMapping(path = "/addRep")
     public ResponseEntity addReport(@RequestBody BugReport bugReport){
         try{
             BugReport bugReport1 = testerService.addBug(bugReport);
@@ -31,7 +31,7 @@ public class TesterController {
         }
     }
 
-    @PostMapping(path = "/update")
+    @PostMapping(path = "/updateRep")
     public ResponseEntity editReport(@RequestBody BugReport bugReport){
         try{
             BugReport bugReport1 = testerService.findById(bugReport.getBug_no());

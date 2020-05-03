@@ -1,7 +1,10 @@
 package com.BTS.BugTrackingSystem.Service;
 
 import com.BTS.BugTrackingSystem.Model.BugSolution;
+import com.BTS.BugTrackingSystem.Model.Developer;
+import com.BTS.BugTrackingSystem.Model.LogIn;
 import com.BTS.BugTrackingSystem.Repository.BugSolutionRepo;
+import com.BTS.BugTrackingSystem.Repository.DeveloperRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,24 @@ import java.util.Optional;
 public class DeveloperService {
     @Autowired
     private BugSolutionRepo solutionRepo;
+
+    @Autowired
+    private DeveloperRepo developerRepo;
+
+    public Developer getEmp(LogIn emp){
+        Developer developer=developerRepo.findByUsernameAndPassword(emp.getUsername(),emp.getPassword());
+        return developer;
+    }
+
+    public Developer getEmp(Developer emp){
+        Developer developer=developerRepo.findByUsername(emp.getUsername());
+        return developer;
+    }
+
+    public Developer getEmpByUsername(String username){
+        Developer developer = developerRepo.findByUsername(username);
+        return developer;
+    }
 
     public BugSolution addSolution(BugSolution bugSolution) throws Exception{
         if(bugSolution == null)

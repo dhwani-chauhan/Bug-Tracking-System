@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @AllArgsConstructor
@@ -15,7 +16,7 @@ import javax.validation.constraints.Pattern;
 public class BugSolution {
 
     @Id
-    @NotBlank(message = "ID must not be empty")
+    @NotNull(message = "ID must not be empty")
     private int bug_no;
     private String e_code;
 

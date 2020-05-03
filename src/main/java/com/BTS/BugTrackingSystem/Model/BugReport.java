@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @NoArgsConstructor
@@ -14,7 +15,7 @@ import javax.validation.constraints.Pattern;
 @Entity
 public class BugReport {
     @Id
-    @NotBlank(message = "ID must not be empty")
+    @NotNull(message = "ID must not be empty")
     private int bug_no;
 
     @NotBlank(message = "Bug Name must not be empty")
@@ -25,8 +26,8 @@ public class BugReport {
     @Pattern(regexp = "[A-Za-z ]*", message = "Bug type must only contain alphabets and spaces")
     private String bug_type;
 
-    @NotBlank(message = "Bug Level must not be empty")
-    @Pattern(regexp = "[0-9 ]*", message = "Bug Level must only contain Numericals")
+    @NotNull(message = "Bug Level must not be empty")
+//    @Pattern(regexp = "[0-9 ]*", message = "Bug Level must only contain Numerical")
     private int bug_level;
 
     @NotBlank(message = "Priority must not be empty")

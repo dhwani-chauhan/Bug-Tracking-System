@@ -80,22 +80,6 @@ public class AdminService {
         return projectDetails;
     }
 
-    public BugReport findReById(int id) throws Exception{
-        return testerService.findById(id);
-    }
-
-    public List<BugReport> showAllRe() throws Exception{
-        return testerService.showAll();
-    }
-
-    public BugSolution findSolById(int id) throws Exception{
-        return developerService.findById(id);
-    }
-
-    public List<BugSolution> showAllSol() throws Exception{
-        return developerService.showAll();
-    }
-
     public Developer addEmp(Developer developer) throws Exception{
         if(developer == null)
             throw new Exception("No Employee Added");
@@ -114,7 +98,7 @@ public class AdminService {
     }
 
 //    public Developer editProfile(Developer developer) throws Exception{
-//        Developer developer1 = developerRepo.findById(developer.getUser_id());
+//        Developer developer1 = developerRepo.findById(developer.getUser_id().get());
 //        if(developer.getEmail().equals(developer1.getEmail())){
 //            developer1.setAddress(developer.getAddress());
 //            developer1.setDob(developer.getDob());
@@ -129,7 +113,7 @@ public class AdminService {
 //    }
 
     public BugReport changeStatus(int bug_no) throws Exception{
-        Optional<BugReport> bugReport = Optional.ofNullable(findReById(bug_no));
+        Optional<BugReport> bugReport = Optional.ofNullable(testerService.findById(bug_no));
         if(!bugReport.isPresent())
             throw new Exception("No such bug reported exist");
         else{
@@ -143,4 +127,5 @@ public class AdminService {
     }
 
     //ReAssign to Developer if not solved bug
+    //Reassign Project
 }

@@ -1,20 +1,15 @@
 package com.BTS.BugTrackingSystem.Model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -22,7 +17,7 @@ import javax.validation.constraints.Size;
 public class ProjectDetails {
 
     @Id
-    @NotBlank(message = "ID must not be empty")
+    @NotNull(message = "ID must not be empty")
     private int p_no;
 
     @NotBlank(message = "Project name must not be empty")
@@ -37,8 +32,8 @@ public class ProjectDetails {
     @Pattern(regexp = "[0-9 ]*", message = "Project start date must only contain Numerical")
     private String s_date;
 
-    @NotBlank(message = "Duration of project must not be empty")
-    @Pattern(regexp = "[0-9 ]*", message = "Duration of project must only contain Numerical")
+    @NotNull(message = "Duration of project must not be empty")
+   // @Pattern(regexp = "[0-9 ]*", message = "Duration of project must only contain Numerical")
     private int duration;
 
     @NotBlank(message = "Client Name must not be empty")
@@ -53,9 +48,9 @@ public class ProjectDetails {
     @Pattern(regexp="^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", message = "Email Address not valid")
     private String c_email;
 
-    @NotBlank(message = "Contact number must not be empty")
-    @Size(min = 10, max = 10, message = "Contact number must be of 10 digits")
-    @Pattern(regexp = "^[^0].*", message="Contact number must not start with 0")
+    @NotNull(message = "Contact number must not be empty")
+   // @Size(min = 10, max = 10, message = "Contact number must be of 10 digits")
+   // @Pattern(regexp = "^[^0].*", message="Contact number must not start with 0")
     private int c_phno;
 
     @NotBlank(message = "Project lead Name must not be empty")

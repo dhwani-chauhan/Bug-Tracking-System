@@ -1,4 +1,3 @@
-
 <html>
 <head>
     <style>
@@ -42,12 +41,6 @@
 
     </style>
 </head>
-
-<%--<footer class="page-footer dark">--%>
-<%--    <div class="footer-copyright">--%>
-<%--        <p> All Rights Reserved &copy: Bug Tracking System</p>--%>
-<%--    </div>--%>
-<%--</footer>--%>
 <div class="footer-dark">
     <footer>
         <div class="container">
@@ -55,9 +48,4 @@
         </div>
     </footer>
 </div>
-<%--<center>--%>
-<%--    <font face="montserrat" size="3 px"> All Rights Reserved &copy: Bug Tracking System</font>--%>
-<%--</center>--%>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 </html>

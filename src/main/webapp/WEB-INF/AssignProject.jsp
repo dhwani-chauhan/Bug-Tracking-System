@@ -1,68 +1,42 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@page import="java.sql.*" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Assign Project</title>
-
-    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
-	<script type="text/javascript" language="javascrpt">
-    	function check()
-    	{
-    		if(Assignproject.pname.value=="select")
-    		{
-    			window.alert("Select Project Name!");
-    			return false;
-    		}       	
-    		if(Assignproject.e_code.value=="select")
-    		{
-    			window.alert("Select Employee Code!");
-    			return false;
-    		}    
-    		if(Assignproject.role.value=='')
-    		{
-    			window.alert("role is Empty !");
-    			return false;
-    		}
-		}
-    </script>
-  </head>
-  <body bgcolor="">
-  <jsp:include page="header1.jsp" />
-<%--	<jsp:useBean id="assignProject" beanName="com.BTS.BugTrackingSystem.Model.AssignProject" type="com.BTS.BugTrackingSystem.Model.AssignProject" scope="request"  />--%>
-	<form:form modelAttribute="assignProject" action="assignproject">
-	   <p><font color="red"></font></p>
-		<center>
-		<h3><font color="#FBB117">&nbsp;&nbsp;&nbsp;&nbsp;Assign Project</font></h3>
-		<table border="0" cellpadding="2">
-			<tr>
-				<td align="left"><font><b>Project Name</b></font></td>
-				<td>
-					<form:select path="pname">
-						<c:forEach items="${pname}" var="pname">
-                            <form:option value="${pname}">${pname}</form:option>
-                        </c:forEach>
-					</form:select>
-			<tr>
-				<td align="left"><font><b>Employee code</b></font></td>
-				<td>
-					<form:select path="e_code">
-                        <c:forEach items="${e_code}" var="e_code">
-                            <form:option value="${e_code}">${e_code}</form:option>
-                        </c:forEach>
-					</form:select>
-                </td>
-            </tr>
-			<tr>
-				<td align="left"><font><b>Role</b></font></td>
-				<td> <form:input path="role" id="role" name="role" /></td></tr>
-			<tr>
-				<td align="center" colspan="2">
-					<form:button id="submit" value="Assign Project" name="submit">Assign Project</form:button></td></tr>
-		</table>
-		</center>
-	</form:form>
-   </body>
-<jsp:include page="Footer.jsp" />
+  	<head>
+	  	<title>Assign Project</title>
+  	</head>
+  	<body>
+		<jsp:include page="links.jsp"/>
+		<jsp:include page="header1.jsp" />
+		<div class="register-photo">
+			<div class="form-container">
+				<form>
+					<h2 class="text-center">Assign Project</h2>
+					<form:form modelAttribute="assignProject" action="assignPro" id="assignProject">
+						<div class="form-group">
+							<form:select path="p_name" class="form-control">
+								<c:forEach items="${pName}" var="pName">
+									<form:option value="${pName}">${pName}</form:option>
+								</c:forEach>
+							</form:select>
+						</div>
+						<div class="form-group">
+							<form:select path="e_code" class="form-control">
+								<c:forEach items="${eCode}" var="eCode">
+									<form:option value="${eCode}">${eCode}</form:option>
+								</c:forEach>
+							</form:select>
+						</div>
+						<div class="form-group">
+							<form:input class="form-control" path="role" name="role" id="role" placeholder="Role"/>
+						</div>
+						<div class="form-group">
+							<form:button class="btn btn-primary btn-block" id="submit" name="submit">Assign Project</form:button>
+						</div>
+					</form:form>
+				</form>
+			</div>
+		</div>
+		<jsp:include page="Footer.jsp" />
+  	</body>
 </html>
